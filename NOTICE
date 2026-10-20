@@ -1,0 +1,11 @@
+Agent Quality Skill is an independent implementation inspired by the MIT-licensed
+[dsh-lint-loop](https://github.com/lemonxiny55/dsh-lint-loop).
+Original project author: lemonxiny55. Copyright (c) 2026 lemonxiny55. MIT License.
+
+The source repository and its MIT license are credited here and in the Skill. This
+project does not include or require the DSH runtime or its proprietary lifecycle
+APIs. It is not an official Claude, Cursor, GitHub Copilot or Agensi product.
+
+The real-tool demo installs ESLint and TypeScript as development dependencies,
+using the pinned package-lock.json. Those third-party packages are not included
+in the Skill ZIP; their respective licenses remain in installed node_modules.

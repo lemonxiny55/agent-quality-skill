@@ -1,0 +1,36 @@
+name: verify
+on: [push, pull_request, workflow_dispatch]
+permissions:
+  contents: read
+jobs:
+  verify:
+    strategy:
+      fail-fast: false
+      matrix:
+        os: [windows-latest, ubuntu-latest]
+        python: ['3.10', '3.13']
+    runs-on: ${{ matrix.os }}
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          path: agent-quality-skill
+      - uses: actions/setup-python@v5
+        with:
+          python-version: ${{ matrix.python }}
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '24'
+      - name: Validate, test, demonstrate, package
+        working-directory: agent-quality-skill
+        run: |
+          python scripts/validate_skill.py .
+          python scripts/record_tests.py --out evidence/ci-tests.json
+          python scripts/demo.py --install --evidence evidence/ci-demo
+          python scripts/package_skill.py
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: evidence-${{ matrix.os }}-py${{ matrix.python }}
+          path: |
+            agent-quality-skill/evidence
+            agent-quality-skill/dist

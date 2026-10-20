@@ -1,0 +1,26 @@
+{
+  "audits": [
+    {
+      "directory": "evidence/release/demo-windows",
+      "checks": {
+        "regression.json": {
+          "verdict": "regression",
+          "outputAndComparisonsReplayed": true
+        },
+        "clean.json": {
+          "verdict": "no_new_observed",
+          "outputAndComparisonsReplayed": true
+        },
+        "missing-baseline.json": {
+          "verdict": "incomplete",
+          "outputAndComparisonsReplayed": true
+        }
+      },
+      "historicalFindings": 2,
+      "testCount": 2,
+      "hashesAndRawOutputConsistent": true,
+      "authentication": "unsigned local evidence"
+    }
+  ],
+  "implementationSha256": "5da035d8c505de33e8c9bb212c1e0de646f52469e02d4a0be62ea69eab9e62b7"
+}

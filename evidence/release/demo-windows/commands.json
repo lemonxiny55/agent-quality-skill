@@ -1,0 +1,232 @@
+[
+  {
+    "argv": [
+      "C:\\Users\\REDACTED\\AppData\\Local\\Programs\\node-v24.19.0\\node.EXE",
+      "C:\\Users\\REDACTED\\AppData\\Local\\Programs\\node-v24.19.0\\node_modules\\npm\\bin\\npm-cli.js",
+      "ci",
+      "--ignore-scripts",
+      "--no-audit",
+      "--no-fund"
+    ],
+    "cwd": "C:\\Projects\\agent-quality-skill\\.work\\demo-fea5988351",
+    "exitCode": 0,
+    "stdout": "\nadded 87 packages in 2s\n",
+    "stderr": "npm warn deprecated eslint@9.39.5: This version is no longer supported. Please see https://eslint.org/version-support for other options.\n"
+  },
+  {
+    "argv": [
+      "git",
+      "init",
+      "-b",
+      "main"
+    ],
+    "cwd": "C:\\Projects\\agent-quality-skill\\.work\\demo-fea5988351",
+    "exitCode": 0,
+    "stdout": "Initialized empty Git repository in D:/ChatGPTProjects/agent-quality-skill/.work/demo-fea5988351/.git/\n",
+    "stderr": ""
+  },
+  {
+    "argv": [
+      "git",
+      "add",
+      "."
+    ],
+    "cwd": "C:\\Projects\\agent-quality-skill\\.work\\demo-fea5988351",
+    "exitCode": 0,
+    "stdout": "",
+    "stderr": "warning: in the working copy of '.agent-quality.json', LF will be replaced by CRLF the next time Git touches it\nwarning: in the working copy of '.gitignore', LF will be replaced by CRLF the next time Git touches it\nwarning: in the working copy of 'eslint.config.mjs', LF will be replaced by CRLF the next time Git touches it\nwarning: in the working copy of 'package-lock.json', LF will be replaced by CRLF the next time Git touches it\nwarning: in the working copy of 'package.json', LF will be replaced by CRLF the next time Git touches it\nwarning: in the working copy of 'src/calculator.mjs', LF will be replaced by CRLF the next time Git touches it\nwarning: in the working copy of 'src/legacy.js', LF will be replaced by CRLF the next time Git touches it\nwarning: in the working copy of 'test/calculator.test.mjs', LF will be replaced by CRLF the next time Git touches it\nwarning: in the working copy of 'tsconfig.json', LF will be replaced by CRLF the next time Git touches it\nwarning: in the working copy of 'types/current.ts', LF will be replaced by CRLF the next time Git touches it\nwarning: in the working copy of 'types/legacy.ts', LF will be replaced by CRLF the next time Git touches it\n"
+  },
+  {
+    "argv": [
+      "git",
+      "-c",
+      "user.name=Quality Demo",
+      "-c",
+      "user.email=demo@example.invalid",
+      "commit",
+      "-m",
+      "real-tool fixture"
+    ],
+    "cwd": "C:\\Projects\\agent-quality-skill\\.work\\demo-fea5988351",
+    "exitCode": 0,
+    "stdout": "[main (root-commit) 51e1b58] real-tool fixture\n 11 files changed, 1146 insertions(+)\n create mode 100644 .agent-quality.json\n create mode 100644 .gitignore\n create mode 100644 eslint.config.mjs\n create mode 100644 package-lock.json\n create mode 100644 package.json\n create mode 100644 src/calculator.mjs\n create mode 100644 src/legacy.js\n create mode 100644 test/calculator.test.mjs\n create mode 100644 tsconfig.json\n create mode 100644 types/current.ts\n create mode 100644 types/legacy.ts\n",
+    "stderr": ""
+  },
+  {
+    "argv": [
+      "git",
+      "add",
+      "types/current.ts"
+    ],
+    "cwd": "C:\\Projects\\agent-quality-skill\\.work\\demo-fea5988351",
+    "exitCode": 0,
+    "stdout": "",
+    "stderr": ""
+  },
+  {
+    "argv": [
+      "git",
+      "diff",
+      "--cached"
+    ],
+    "cwd": "C:\\Projects\\agent-quality-skill\\.work\\demo-fea5988351",
+    "exitCode": 0,
+    "stdout": "diff --git a/types/current.ts b/types/current.ts\nindex 8f5d935..7ad0732 100644\n--- a/types/current.ts\n+++ b/types/current.ts\n@@ -1 +1,2 @@\n+// Pre-existing user change\n export const current: number = 1;\n",
+    "stderr": ""
+  },
+  {
+    "argv": [
+      "E:\\anaconda\\python.exe",
+      "C:\\Projects\\agent-quality-skill\\scripts\\quality.py",
+      "plan",
+      "--repo",
+      "C:\\Projects\\agent-quality-skill\\.work\\demo-fea5988351"
+    ],
+    "cwd": "C:\\Projects\\agent-quality-skill\\.work\\demo-fea5988351",
+    "exitCode": 0,
+    "stdout": "{\n  \"repo\": \"C:\\\\Projects\\\\agent-quality-skill\\\\.work\\\\demo-fea5988351\",\n  \"checks\": [\n    {\n      \"id\": \"eslint\",\n      \"kind\": \"lint\",\n      \"adapter\": \"eslint-json\",\n      \"argv\": [\n        \"node\",\n        \"node_modules/eslint/bin/eslint.js\",\n        \"src\",\n        \"--format\",\n        \"json\"\n      ],\n      \"timeoutSeconds\": 30\n    },\n    {\n      \"id\": \"types\",\n      \"kind\": \"typecheck\",\n      \"adapter\": \"tsc\",\n      \"argv\": [\n        \"node\",\n        \"node_modules/typescript/bin/tsc\",\n        \"--noEmit\",\n        \"--pretty\",\n        \"false\"\n      ],\n      \"timeoutSeconds\": 30\n    },\n    {\n      \"id\": \"tests\",\n      \"kind\": \"tests\",\n      \"adapter\": \"node-test-tap\",\n      \"argv\": [\n        \"node\",\n        \"--test\",\n        \"--test-reporter=tap\",\n        \"test/calculator.test.mjs\"\n      ],\n      \"timeoutSeconds\": 30\n    }\n  ],\n  \"configDigest\": \"b9aab6747e86ee509ff50a8a5e3f56f2ca15ec15902d97e40b9d0673216b0f08\",\n  \"workspace\": {\n    \"head\": \"51e1b5831f8f4b6e2341e108a336955d27653a7e\",\n    \"indexSha256\": \"d27825bba605bdf194dbeca52caf44cd071f167085f0a70c7d7b9496413a620a\",\n    \"files\": {\n      \".agent-quality.json\": {\n        \"sha256\": \"f6cd75e89afba10aba89792c9c3a992e0dbe5d8eff7ebe9c7f934f58049788a9\",\n        \"bytes\": 502,\n        \"executable\": null\n      },\n      \".gitignore\": {\n        \"sha256\": \"6c2cd78fd4351e9b5ccffbafc24c177592ce9412f8d086c424aad9ea35708440\",\n        \"bytes\": 30,\n        \"executable\": null\n      },\n      \"eslint.config.mjs\": {\n        \"sha256\": \"f4ac7149055f05071764e6048aba1d241e58b12b25dfdac98cd191a4166ccdab\",\n        \"bytes\": 99,\n        \"executable\": null\n      },\n      \"package-lock.json\": {\n        \"sha256\": \"e69064a42635f76ecbac4db3d45f8404806524320e702dcd2002d4025d3f189d\",\n        \"bytes\": 39206,\n        \"executable\": null\n      },\n      \"package.json\": {\n        \"sha256\": \"1dafbe1541f6c6b36a0388284c674a2c9ef86513dc71787208c3e00767df0ec8\",\n        \"bytes\": 174,\n        \"executable\": null\n      },\n      \"src/calculator.mjs\": {\n        \"sha256\": \"76f26bd292166033d02e77bdb8fe6aec01e915ccb8cb3f93b8971f9dcd78250e\",\n        \"bytes\": 44,\n        \"executable\": null\n      },\n      \"src/legacy.js\": {\n        \"sha256\": \"7c5f0e1f1fb2c3d41de4e1daca4beb07bbe49b81da5ee537f74a24901cd39abc\",\n        \"bytes\": 28,\n        \"executable\": null\n      },\n      \"test/calculator.test.mjs\": {\n        \"sha256\": \"96c60f1d41e43c125b5e141a91c05780e4ae440160d866c744198fce7e35e64c\",\n        \"bytes\": 246,\n        \"executable\": null\n      },\n      \"tsconfig.json\": {\n        \"sha256\": \"21faf50a98bd4500cdcc2e7a1ce76de800b95800ad33fe9b9fc3a338850f0fb3\",\n        \"bytes\": 129,\n        \"executable\": null\n      },\n      \"types/current.ts\": {\n        \"sha256\": \"e40a2c74f1db596934eb928c42c40b9720ed3e46c408a8209846695956819b52\",\n        \"bytes\": 64,\n        \"executable\": null\n      },\n      \"types/legacy.ts\": {\n        \"sha256\": \"ba59bed004adb731e3197eb5ac25dbfb5518ecb321831935d9fa82154588df9a\",\n        \"bytes\": 46,\n        \"executable\": null\n      },\n      \"user-note.txt\": {\n        \"sha256\": \"df780ea050dcff615d5339a082ab32ff135469fc9c4d906e73bddf58f36785e9\",\n        \"bytes\": 35,\n        \"executable\": null\n      }\n    },\n    \"excluded\": [\n      \".agent-quality/\",\n      \"node_modules/\"\n    ],\n    \"gitStatusPorcelainZ\": \"M  types/current.ts\\u0000?? user-note.txt\\u0000\",\n    \"reasons\": [],\n    \"complete\": true,\n    \"digest\": \"9c94756b2918ad9544b95675848488900fe227a43130cb49781d177e5b60addd\"\n  },\n  \"execution\": \"not requested; inspect commands before --execute\"\n}\n",
+    "stderr": ""
+  },
+  {
+    "argv": [
+      "E:\\anaconda\\python.exe",
+      "C:\\Projects\\agent-quality-skill\\scripts\\quality.py",
+      "baseline",
+      "--repo",
+      "C:\\Projects\\agent-quality-skill\\.work\\demo-fea5988351",
+      "--before-edit",
+      "--execute",
+      "--out",
+      "C:\\Projects\\agent-quality-skill\\.work\\demo-fea5988351\\.agent-quality\\before.json"
+    ],
+    "cwd": "C:\\Projects\\agent-quality-skill\\.work\\demo-fea5988351",
+    "exitCode": 0,
+    "stdout": "{\n  \"artifact\": \"C:\\\\Projects\\\\agent-quality-skill\\\\.work\\\\demo-fea5988351\\\\.agent-quality\\\\before.json\",\n  \"verdict\": \"baseline_ready\",\n  \"reasons\": []\n}\n",
+    "stderr": ""
+  },
+  {
+    "argv": [
+      "E:\\anaconda\\python.exe",
+      "C:\\Projects\\agent-quality-skill\\scripts\\quality.py",
+      "verify",
+      "--repo",
+      "C:\\Projects\\agent-quality-skill\\.work\\demo-fea5988351",
+      "--baseline",
+      "C:\\Projects\\agent-quality-skill\\.work\\demo-fea5988351\\.agent-quality\\before.json",
+      "--execute",
+      "--out",
+      "C:\\Projects\\agent-quality-skill\\.work\\demo-fea5988351\\.agent-quality\\regression.json"
+    ],
+    "cwd": "C:\\Projects\\agent-quality-skill\\.work\\demo-fea5988351",
+    "exitCode": 1,
+    "stdout": "{\n  \"artifact\": \"C:\\\\Projects\\\\agent-quality-skill\\\\.work\\\\demo-fea5988351\\\\.agent-quality\\\\regression.json\",\n  \"verdict\": \"regression\",\n  \"reasons\": []\n}\n",
+    "stderr": ""
+  },
+  {
+    "argv": [
+      "E:\\anaconda\\python.exe",
+      "C:\\Projects\\agent-quality-skill\\scripts\\quality.py",
+      "verify",
+      "--repo",
+      "C:\\Projects\\agent-quality-skill\\.work\\demo-fea5988351",
+      "--baseline",
+      "C:\\Projects\\agent-quality-skill\\.work\\demo-fea5988351\\.agent-quality\\before.json",
+      "--execute",
+      "--out",
+      "C:\\Projects\\agent-quality-skill\\.work\\demo-fea5988351\\.agent-quality\\clean.json"
+    ],
+    "cwd": "C:\\Projects\\agent-quality-skill\\.work\\demo-fea5988351",
+    "exitCode": 0,
+    "stdout": "{\n  \"artifact\": \"C:\\\\Projects\\\\agent-quality-skill\\\\.work\\\\demo-fea5988351\\\\.agent-quality\\\\clean.json\",\n  \"verdict\": \"no_new_observed\",\n  \"reasons\": []\n}\n",
+    "stderr": ""
+  },
+  {
+    "argv": [
+      "E:\\anaconda\\python.exe",
+      "C:\\Projects\\agent-quality-skill\\scripts\\quality.py",
+      "check-receipt",
+      "--repo",
+      "C:\\Projects\\agent-quality-skill\\.work\\demo-fea5988351",
+      "--receipt",
+      "C:\\Projects\\agent-quality-skill\\.work\\demo-fea5988351\\.agent-quality\\clean.json"
+    ],
+    "cwd": "C:\\Projects\\agent-quality-skill\\.work\\demo-fea5988351",
+    "exitCode": 0,
+    "stdout": "{\n  \"artifactIntegrity\": \"verified hash (unsigned; not tamper-proof)\",\n  \"fresh\": true,\n  \"savedVerdict\": \"no_new_observed\",\n  \"effectiveVerdict\": \"no_new_observed\",\n  \"reasons\": []\n}\n",
+    "stderr": ""
+  },
+  {
+    "argv": [
+      "E:\\anaconda\\python.exe",
+      "C:\\Projects\\agent-quality-skill\\scripts\\quality.py",
+      "verify",
+      "--repo",
+      "C:\\Projects\\agent-quality-skill\\.work\\demo-fea5988351",
+      "--execute",
+      "--out",
+      "C:\\Projects\\agent-quality-skill\\.work\\demo-fea5988351\\.agent-quality\\missing-baseline.json"
+    ],
+    "cwd": "C:\\Projects\\agent-quality-skill\\.work\\demo-fea5988351",
+    "exitCode": 2,
+    "stdout": "{\n  \"artifact\": \"C:\\\\Projects\\\\agent-quality-skill\\\\.work\\\\demo-fea5988351\\\\.agent-quality\\\\missing-baseline.json\",\n  \"verdict\": \"incomplete\",\n  \"reasons\": [\n    \"missing pre-edit baseline; current results cannot establish absence of new regressions\",\n    \"one or more checks have unclassified or incomplete evidence\"\n  ]\n}\n",
+    "stderr": ""
+  },
+  {
+    "argv": [
+      "E:\\anaconda\\python.exe",
+      "C:\\Projects\\agent-quality-skill\\scripts\\quality.py",
+      "check-receipt",
+      "--repo",
+      "C:\\Projects\\agent-quality-skill\\.work\\demo-fea5988351",
+      "--receipt",
+      "C:\\Projects\\agent-quality-skill\\.work\\demo-fea5988351\\.agent-quality\\clean.json"
+    ],
+    "cwd": "C:\\Projects\\agent-quality-skill\\.work\\demo-fea5988351",
+    "exitCode": 2,
+    "stdout": "{\n  \"artifactIntegrity\": \"verified hash (unsigned; not tamper-proof)\",\n  \"fresh\": false,\n  \"savedVerdict\": \"no_new_observed\",\n  \"effectiveVerdict\": \"incomplete\",\n  \"reasons\": [\n    \"receipt stale: workspace content/index/HEAD/exclusions changed\"\n  ]\n}\n",
+    "stderr": ""
+  },
+  {
+    "argv": [
+      "git",
+      "diff",
+      "--cached"
+    ],
+    "cwd": "C:\\Projects\\agent-quality-skill\\.work\\demo-fea5988351",
+    "exitCode": 0,
+    "stdout": "diff --git a/types/current.ts b/types/current.ts\nindex 8f5d935..7ad0732 100644\n--- a/types/current.ts\n+++ b/types/current.ts\n@@ -1 +1,2 @@\n+// Pre-existing user change\n export const current: number = 1;\n",
+    "stderr": ""
+  },
+  {
+    "argv": [
+      "C:\\Users\\REDACTED\\AppData\\Local\\Programs\\node-v24.19.0\\node.EXE",
+      "--version"
+    ],
+    "cwd": "C:\\Projects\\agent-quality-skill\\.work\\demo-fea5988351",
+    "exitCode": 0,
+    "stdout": "v24.19.0\n",
+    "stderr": ""
+  },
+  {
+    "argv": [
+      "C:\\Users\\REDACTED\\AppData\\Local\\Programs\\node-v24.19.0\\node.EXE",
+      "node_modules/eslint/bin/eslint.js",
+      "--version"
+    ],
+    "cwd": "C:\\Projects\\agent-quality-skill\\.work\\demo-fea5988351",
+    "exitCode": 0,
+    "stdout": "v9.39.5\n",
+    "stderr": ""
+  },
+  {
+    "argv": [
+      "C:\\Users\\REDACTED\\AppData\\Local\\Programs\\node-v24.19.0\\node.EXE",
+      "node_modules/typescript/bin/tsc",
+      "--version"
+    ],
+    "cwd": "C:\\Projects\\agent-quality-skill\\.work\\demo-fea5988351",
+    "exitCode": 0,
+    "stdout": "Version 5.9.3\n",
+    "stderr": ""
+  }
+]

@@ -1,0 +1,7 @@
+{
+  "name": "agent-quality-real-tool-demo",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "devDependencies": { "eslint": "9.39.5", "typescript": "5.9.3" }
+}

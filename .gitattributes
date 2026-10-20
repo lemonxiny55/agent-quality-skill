@@ -1,0 +1,2 @@
+# Evidence and implementation fingerprints must survive Git checkouts byte-for-byte.
+* -text whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol

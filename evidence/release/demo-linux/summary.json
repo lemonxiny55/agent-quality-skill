@@ -1,0 +1,35 @@
+{
+  "realTools": {
+    "python": "3.12.3 (main, Aug 31 2026, 10:18:26) [GCC 13.3.0]",
+    "platform": "linux",
+    "node": "v24.19.0",
+    "eslint": "v9.39.5",
+    "typescript": "Version 5.9.3"
+  },
+  "work": "/workspace/agent-quality-skill/.work/demo-ce53989db1",
+  "regressionVerdict": "regression",
+  "finalVerdict": "no_new_observed",
+  "historicalFindingsRetained": 2,
+  "testCommandExit": 0,
+  "testSummary": {
+    "tests": 2,
+    "suites": 0,
+    "pass": 2,
+    "fail": 0,
+    "cancelled": 0,
+    "skipped": 0,
+    "todo": 0
+  },
+  "missingBaseline": "incomplete",
+  "staleReceipt": "incomplete",
+  "stagedAndUntrackedPreserved": true,
+  "artifacts": {
+    "before.json": "b980990d18f5fbd01461d519c69c51a383d649702256e3616176471debe75ecd",
+    "clean.json": "2424793db68ec6a86d42e0b4f3fe07817c637caa25ea1890532a9ca7c5e32d4a",
+    "commands.json": "c5b6f6a6508529598a3280e07fa048a52aaf6c5f0358ea5a71b399b4dc0776a2",
+    "missing-baseline.json": "1b446cec1d50592140d4bdfd023a796df7e732482c363e782751c0679f6d8d33",
+    "regression.json": "8db853f9816625d9770b3c69c02c86b83fd46bd332ef3e0623079ecdff57c7f4",
+    "stale-check.json": "2880846b585f2abedfede7e6eee27357c91c90f68ffc73aa58794e56896fd13e"
+  },
+  "pathRedactions": "Machine-specific repository and home paths replaced with generic paths; receipts resealed (unsigned)."
+}

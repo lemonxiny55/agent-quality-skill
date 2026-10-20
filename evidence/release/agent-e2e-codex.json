@@ -1,0 +1,16 @@
+{
+  "agent": "codex-cli 0.163.0-alpha.10.2",
+  "status": "passed",
+  "explicitSkillLoad": true,
+  "automaticSelectionTested": false,
+  "baselineBeforeRequestedEdit": true,
+  "sameEnvironment": true,
+  "onlyRequestedSourceChanged": true,
+  "configuredTestsPassed": 2,
+  "historicalFindingsRetained": 2,
+  "receiptVerdict": "no_new_observed",
+  "agentCheckedFreshness": true,
+  "rawToolEventsAudited": true,
+  "transcriptSha256": "1fb5051d54b61d1fe542136fdf29320dd241f1c004e16175f4a1b3d96a865c33",
+  "scope": "one isolated Windows task, explicit invocation and one inherited terminal environment; no host-hook test"
+}

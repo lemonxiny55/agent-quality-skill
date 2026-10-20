@@ -1,0 +1,12 @@
+[project]
+name = "agent-quality-skill"
+version = "0.1.0"
+description = "Portable, explicit quality receipts for coding agents"
+requires-python = ">=3.10"
+license = "MIT"
+dependencies = []
+
+[project.urls]
+Homepage = "https://github.com/lemonxiny55/agent-quality-skill#readme"
+Repository = "https://github.com/lemonxiny55/agent-quality-skill"
+Origin = "https://github.com/lemonxiny55/dsh-lint-loop"

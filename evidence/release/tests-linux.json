@@ -1,0 +1,31 @@
+{
+  "timestamp": "2026-10-20T07:51:09.695998+00:00",
+  "argv": [
+    "python3",
+    "-m",
+    "unittest",
+    "discover",
+    "-s",
+    "tests",
+    "-v"
+  ],
+  "platform": "Linux-6.18.33.2-microsoft-standard-WSL2-x86_64-with-glibc2.39",
+  "python": "3.12.3 (main, Aug 31 2026, 10:18:26) [GCC 13.3.0]",
+  "exitCode": 0,
+  "stdout": "",
+  "stderr": "test_invalid_name_and_reference_rejected (test_package.Package.test_invalid_name_and_reference_rejected) ... ok\ntest_skill_format (test_package.Package.test_skill_format) ... ok\ntest_zip_extract_and_runtime (test_package.Package.test_zip_extract_and_runtime) ... ok\ntest_eslint_malformed_and_outside_path (test_quality.Parsers.test_eslint_malformed_and_outside_path) ... ok\ntest_multiset (test_quality.Parsers.test_multiset) ... ok\ntest_node_test_summary_zero_skipped_and_inconsistent (test_quality.Parsers.test_node_test_summary_zero_skipped_and_inconsistent) ... ok\ntest_tsc_strict (test_quality.Parsers.test_tsc_strict) ... ok\ntest_add_delete_rename (test_quality.Workspace.test_add_delete_rename) ... ok\ntest_baseline_integrity_corruption (test_quality.Workspace.test_baseline_integrity_corruption) ... ok\ntest_cancellation (test_quality.Workspace.test_cancellation) ... ok\ntest_changed_configuration_and_environment (test_quality.Workspace.test_changed_configuration_and_environment) ... ok\ntest_changed_legacy_same_diagnostic_unclassified (test_quality.Workspace.test_changed_legacy_same_diagnostic_unclassified) ... ok\ntest_changed_tool (test_quality.Workspace.test_changed_tool) ... ok\ntest_cli_safety_and_missing_baseline_exit (test_quality.Workspace.test_cli_safety_and_missing_baseline_exit) ... ok\ntest_cli_sigterm_saves_cancelled_receipt (test_quality.Workspace.test_cli_sigterm_saves_cancelled_receipt) ... ok\ntest_config_validation (test_quality.Workspace.test_config_validation) ... ok\ntest_descendant_is_killed_on_timeout (test_quality.Workspace.test_descendant_is_killed_on_timeout) ... ok\ntest_dirty_baseline_preserves_staged_and_untracked (test_quality.Workspace.test_dirty_baseline_preserves_staged_and_untracked) ... ok\ntest_environment_fingerprint_does_not_expose_variable_names (test_quality.Workspace.test_environment_fingerprint_does_not_expose_variable_names) ... ok\ntest_expired_baseline (test_quality.Workspace.test_expired_baseline) ... ok\ntest_failed_test_baseline_not_laundered (test_quality.Workspace.test_failed_test_baseline_not_laundered) ... ok\ntest_generic_test_command_cannot_prove_test_execution (test_quality.Workspace.test_generic_test_command_cannot_prove_test_execution) ... ok\ntest_green_test_baseline_now_fails (test_quality.Workspace.test_green_test_baseline_now_fails) ... ok\ntest_head_change_invalidates_baseline (test_quality.Workspace.test_head_change_invalidates_baseline) ... ok\ntest_historical_isolated_from_new (test_quality.Workspace.test_historical_isolated_from_new) ... ok\ntest_missing_baseline_even_if_checks_pass (test_quality.Workspace.test_missing_baseline_even_if_checks_pass) ... ok\ntest_mutation_during_checks (test_quality.Workspace.test_mutation_during_checks) ... ok\ntest_output_symlink_escape_rejected (test_quality.Workspace.test_output_symlink_escape_rejected) ... ok\ntest_receipt_freshness_and_hash (test_quality.Workspace.test_receipt_freshness_and_hash) ... ok\ntest_snapshot_budget_exhaustion (test_quality.Workspace.test_snapshot_budget_exhaustion) ... ok\ntest_symlink_incomplete (test_quality.Workspace.test_symlink_incomplete) ... ok\ntest_timeouts_missing_tools_failures_malformed_output (test_quality.Workspace.test_timeouts_missing_tools_failures_malformed_output) ... ok\ntest_tracked_evidence_directory_invalidates_snapshot (test_quality.Workspace.test_tracked_evidence_directory_invalidates_snapshot) ... ok\ntest_unconfigured_category_incomplete (test_quality.Workspace.test_unconfigured_category_incomplete) ... ok\n\n----------------------------------------------------------------------\nRan 34 tests in 13.199s\n\nOK\n",
+  "testedSourceSha256": {
+    "scripts/agent_e2e.py": "e35f259990f350497fb18cca09cb1b98cd2ef1da1296aa7ec0c1d6771d956ba1",
+    "scripts/audit_agent.py": "be523f542a53255c98fbf01d5fe806369ddbae523f9c6661fa563b75c44ca74b",
+    "scripts/audit_evidence.py": "2979fd8ded551b3ccc22ffdd74c482086ed4012e2b06149e54a52b77065859a0",
+    "scripts/demo.py": "2ebee858d8ca7f892fe8434b71ba60cfb41d4c904319139d43a44036b604e5d8",
+    "scripts/package_skill.py": "9cc2050ef40e3accb443706dc1fcaf53c0964b3ade430fb267eedecff96dde21",
+    "scripts/quality.py": "5da035d8c505de33e8c9bb212c1e0de646f52469e02d4a0be62ea69eab9e62b7",
+    "scripts/record_tests.py": "11611320abe488b06776886acb99ef1e373465133aec856fef7c12e2339b2756",
+    "scripts/validate_skill.py": "1adf6948d6425802f8d67656fd904d8f8ca080f69600a3d8d7872f47729a2760",
+    "scripts/__init__.py": "117a600aae3d84f6d1278e8b3327679ff91deacdada22e813d5336def9794945",
+    "tests/test_package.py": "3f2fcd0cf9114a86674079d6a40f2f21b9388aff342cf8e4deca9b18ccd62dec",
+    "tests/test_quality.py": "160dc79c452522a2d0f363c62be5f148f5a7f55e14dfb812b745fbc576baa4ff"
+  },
+  "pathRedactions": "Interpreter path omitted; test output and tested source hashes retained."
+}

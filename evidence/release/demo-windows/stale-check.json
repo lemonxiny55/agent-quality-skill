@@ -1,0 +1,9 @@
+{
+  "artifactIntegrity": "verified hash (unsigned; not tamper-proof)",
+  "fresh": false,
+  "savedVerdict": "no_new_observed",
+  "effectiveVerdict": "incomplete",
+  "reasons": [
+    "receipt stale: workspace content/index/HEAD/exclusions changed"
+  ]
+}

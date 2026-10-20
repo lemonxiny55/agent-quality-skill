@@ -1,0 +1,404 @@
+{
+  "schema": "agent-quality/v1",
+  "artifact": "receipt",
+  "version": "0.1.0",
+  "implementationSha256": "5da035d8c505de33e8c9bb212c1e0de646f52469e02d4a0be62ea69eab9e62b7",
+  "createdAt": "2026-10-20T07:40:51.772125+00:00",
+  "repo": "C:\\Projects\\agent-quality-skill\\.work\\demo-fea5988351",
+  "environment": {
+    "platform": "win32",
+    "python": "3.13.9 | packaged by Anaconda, Inc. | (main, Oct 21 2025, 19:09:58) [MSC v.1929 64 bit (AMD64)]",
+    "environmentSha256": "0a859d5ee5c03590df66bc5a61b46d1e92db5f9258d2c56d3ba8d512f6154707"
+  },
+  "configDigest": "b9aab6747e86ee509ff50a8a5e3f56f2ca15ec15902d97e40b9d0673216b0f08",
+  "config": {
+    "version": 1,
+    "checks": [
+      {
+        "id": "eslint",
+        "kind": "lint",
+        "adapter": "eslint-json",
+        "argv": [
+          "node",
+          "node_modules/eslint/bin/eslint.js",
+          "src",
+          "--format",
+          "json"
+        ],
+        "timeoutSeconds": 30
+      },
+      {
+        "id": "types",
+        "kind": "typecheck",
+        "adapter": "tsc",
+        "argv": [
+          "node",
+          "node_modules/typescript/bin/tsc",
+          "--noEmit",
+          "--pretty",
+          "false"
+        ],
+        "timeoutSeconds": 30
+      },
+      {
+        "id": "tests",
+        "kind": "tests",
+        "adapter": "node-test-tap",
+        "argv": [
+          "node",
+          "--test",
+          "--test-reporter=tap",
+          "test/calculator.test.mjs"
+        ],
+        "timeoutSeconds": 30
+      }
+    ]
+  },
+  "baseline": {
+    "id": "0e4e7a1c-8686-451a-b5fe-c47ea87d9b30",
+    "integritySha256": "3317721e8c0f14227603cacfb2976e597221ff3baefc49618fefd3fd43da4006",
+    "trust": "local capture; user attests it predates edits; unsigned"
+  },
+  "changes": [
+    {
+      "path": "src/calculator.mjs",
+      "change": "modified"
+    },
+    {
+      "path": "types/current.ts",
+      "change": "modified"
+    }
+  ],
+  "authorship": "unknown: observed interval changes may include other writers",
+  "scope": "configured commands; tracked and nonignored untracked content; exclusions listed in snapshots",
+  "execution": {
+    "before": {
+      "head": "51e1b5831f8f4b6e2341e108a336955d27653a7e",
+      "indexSha256": "d27825bba605bdf194dbeca52caf44cd071f167085f0a70c7d7b9496413a620a",
+      "files": {
+        ".agent-quality.json": {
+          "sha256": "f6cd75e89afba10aba89792c9c3a992e0dbe5d8eff7ebe9c7f934f58049788a9",
+          "bytes": 502,
+          "executable": null
+        },
+        ".gitignore": {
+          "sha256": "6c2cd78fd4351e9b5ccffbafc24c177592ce9412f8d086c424aad9ea35708440",
+          "bytes": 30,
+          "executable": null
+        },
+        "eslint.config.mjs": {
+          "sha256": "f4ac7149055f05071764e6048aba1d241e58b12b25dfdac98cd191a4166ccdab",
+          "bytes": 99,
+          "executable": null
+        },
+        "package-lock.json": {
+          "sha256": "e69064a42635f76ecbac4db3d45f8404806524320e702dcd2002d4025d3f189d",
+          "bytes": 39206,
+          "executable": null
+        },
+        "package.json": {
+          "sha256": "1dafbe1541f6c6b36a0388284c674a2c9ef86513dc71787208c3e00767df0ec8",
+          "bytes": 174,
+          "executable": null
+        },
+        "src/calculator.mjs": {
+          "sha256": "52235273fc8ba94a04042315cd2a18ca8d53303e1ce266e12451344516f6f140",
+          "bytes": 75,
+          "executable": null
+        },
+        "src/legacy.js": {
+          "sha256": "7c5f0e1f1fb2c3d41de4e1daca4beb07bbe49b81da5ee537f74a24901cd39abc",
+          "bytes": 28,
+          "executable": null
+        },
+        "test/calculator.test.mjs": {
+          "sha256": "96c60f1d41e43c125b5e141a91c05780e4ae440160d866c744198fce7e35e64c",
+          "bytes": 246,
+          "executable": null
+        },
+        "tsconfig.json": {
+          "sha256": "21faf50a98bd4500cdcc2e7a1ce76de800b95800ad33fe9b9fc3a338850f0fb3",
+          "bytes": 129,
+          "executable": null
+        },
+        "types/current.ts": {
+          "sha256": "cfcbd201d6d98122169cb0e2019e13ac11894f8750c1346acf17f8fc660eb16d",
+          "bytes": 75,
+          "executable": null
+        },
+        "types/legacy.ts": {
+          "sha256": "ba59bed004adb731e3197eb5ac25dbfb5518ecb321831935d9fa82154588df9a",
+          "bytes": 46,
+          "executable": null
+        },
+        "user-note.txt": {
+          "sha256": "df780ea050dcff615d5339a082ab32ff135469fc9c4d906e73bddf58f36785e9",
+          "bytes": 35,
+          "executable": null
+        }
+      },
+      "excluded": [
+        ".agent-quality/",
+        "node_modules/"
+      ],
+      "gitStatusPorcelainZ": " M src/calculator.mjs\u0000MM types/current.ts\u0000?? user-note.txt\u0000",
+      "reasons": [],
+      "complete": true,
+      "digest": "4abe0c9baf192ca486de576649de2b5ea1b6c8dfd136a6b0dc3eecbf14781d5d"
+    },
+    "after": {
+      "head": "51e1b5831f8f4b6e2341e108a336955d27653a7e",
+      "indexSha256": "d27825bba605bdf194dbeca52caf44cd071f167085f0a70c7d7b9496413a620a",
+      "files": {
+        ".agent-quality.json": {
+          "sha256": "f6cd75e89afba10aba89792c9c3a992e0dbe5d8eff7ebe9c7f934f58049788a9",
+          "bytes": 502,
+          "executable": null
+        },
+        ".gitignore": {
+          "sha256": "6c2cd78fd4351e9b5ccffbafc24c177592ce9412f8d086c424aad9ea35708440",
+          "bytes": 30,
+          "executable": null
+        },
+        "eslint.config.mjs": {
+          "sha256": "f4ac7149055f05071764e6048aba1d241e58b12b25dfdac98cd191a4166ccdab",
+          "bytes": 99,
+          "executable": null
+        },
+        "package-lock.json": {
+          "sha256": "e69064a42635f76ecbac4db3d45f8404806524320e702dcd2002d4025d3f189d",
+          "bytes": 39206,
+          "executable": null
+        },
+        "package.json": {
+          "sha256": "1dafbe1541f6c6b36a0388284c674a2c9ef86513dc71787208c3e00767df0ec8",
+          "bytes": 174,
+          "executable": null
+        },
+        "src/calculator.mjs": {
+          "sha256": "52235273fc8ba94a04042315cd2a18ca8d53303e1ce266e12451344516f6f140",
+          "bytes": 75,
+          "executable": null
+        },
+        "src/legacy.js": {
+          "sha256": "7c5f0e1f1fb2c3d41de4e1daca4beb07bbe49b81da5ee537f74a24901cd39abc",
+          "bytes": 28,
+          "executable": null
+        },
+        "test/calculator.test.mjs": {
+          "sha256": "96c60f1d41e43c125b5e141a91c05780e4ae440160d866c744198fce7e35e64c",
+          "bytes": 246,
+          "executable": null
+        },
+        "tsconfig.json": {
+          "sha256": "21faf50a98bd4500cdcc2e7a1ce76de800b95800ad33fe9b9fc3a338850f0fb3",
+          "bytes": 129,
+          "executable": null
+        },
+        "types/current.ts": {
+          "sha256": "cfcbd201d6d98122169cb0e2019e13ac11894f8750c1346acf17f8fc660eb16d",
+          "bytes": 75,
+          "executable": null
+        },
+        "types/legacy.ts": {
+          "sha256": "ba59bed004adb731e3197eb5ac25dbfb5518ecb321831935d9fa82154588df9a",
+          "bytes": 46,
+          "executable": null
+        },
+        "user-note.txt": {
+          "sha256": "df780ea050dcff615d5339a082ab32ff135469fc9c4d906e73bddf58f36785e9",
+          "bytes": 35,
+          "executable": null
+        }
+      },
+      "excluded": [
+        ".agent-quality/",
+        "node_modules/"
+      ],
+      "gitStatusPorcelainZ": " M src/calculator.mjs\u0000MM types/current.ts\u0000?? user-note.txt\u0000",
+      "reasons": [],
+      "complete": true,
+      "digest": "4abe0c9baf192ca486de576649de2b5ea1b6c8dfd136a6b0dc3eecbf14781d5d"
+    },
+    "checks": [
+      {
+        "id": "eslint",
+        "kind": "lint",
+        "adapter": "eslint-json",
+        "command": {
+          "argv": [
+            "node",
+            "node_modules/eslint/bin/eslint.js",
+            "src",
+            "--format",
+            "json"
+          ],
+          "resolvedExecutable": "C:\\Users\\REDACTED\\AppData\\Local\\Programs\\node-v24.19.0\\node.exe",
+          "fileSha256": {
+            "C:\\Users\\REDACTED\\AppData\\Local\\Programs\\node-v24.19.0\\node.exe": "3602f2bb1a10f2cbab4c36886218a33c1ab3db87290e73b033c46c77147d0237",
+            "C:\\Projects\\agent-quality-skill\\.work\\demo-fea5988351\\node_modules\\eslint\\bin\\eslint.js": "6280b95e2a6ab3b04be45cbd3b1627654be518e6a4da163ec0adcbba9cd5fcd8"
+          }
+        },
+        "cwd": "C:\\Projects\\agent-quality-skill\\.work\\demo-fea5988351",
+        "startedAt": "2026-10-20T07:40:49.096670+00:00",
+        "status": "complete",
+        "exitCode": 1,
+        "stdout": "[{\"filePath\":\"C:\\\\Projects\\\\agent-quality-skill\\\\.work\\\\demo-fea5988351\\\\src\\\\calculator.mjs\",\"messages\":[{\"ruleId\":\"no-unused-vars\",\"severity\":2,\"message\":\"'accidentallyUnused' is assigned a value but never used.\",\"line\":1,\"column\":35,\"nodeType\":\"Identifier\",\"messageId\":\"unusedVar\",\"endLine\":1,\"endColumn\":53,\"suggestions\":[{\"messageId\":\"removeVar\",\"data\":{\"varName\":\"accidentallyUnused\"},\"fix\":{\"range\":[28,57],\"text\":\"\"},\"desc\":\"Remove unused variable 'accidentallyUnused'.\"}]}],\"suppressedMessages\":[],\"errorCount\":1,\"fatalErrorCount\":0,\"warningCount\":0,\"fixableErrorCount\":0,\"fixableWarningCount\":0,\"source\":\"export function add(a, b) { const accidentallyUnused = 1; return a - b; }\\r\\n\",\"usedDeprecatedRules\":[]},{\"filePath\":\"C:\\\\Projects\\\\agent-quality-skill\\\\.work\\\\demo-fea5988351\\\\src\\\\legacy.js\",\"messages\":[{\"ruleId\":\"no-unused-vars\",\"severity\":2,\"message\":\"'historicalUnused' is assigned a value but never used.\",\"line\":1,\"column\":7,\"nodeType\":\"Identifier\",\"messageId\":\"unusedVar\",\"endLine\":1,\"endColumn\":23,\"suggestions\":[{\"messageId\":\"removeVar\",\"data\":{\"varName\":\"historicalUnused\"},\"fix\":{\"range\":[0,27],\"text\":\"\"},\"desc\":\"Remove unused variable 'historicalUnused'.\"}]}],\"suppressedMessages\":[],\"errorCount\":1,\"fatalErrorCount\":0,\"warningCount\":0,\"fixableErrorCount\":0,\"fixableWarningCount\":0,\"source\":\"const historicalUnused = 1;\\n\",\"usedDeprecatedRules\":[]}]\n",
+        "stderr": "",
+        "findings": [
+          {
+            "identity": "[\"src/calculator.mjs\", \"no-unused-vars\", 2, \"'accidentallyUnused' is assigned a value but never used.\", 1, 35]",
+            "path": "src/calculator.mjs"
+          },
+          {
+            "identity": "[\"src/legacy.js\", \"no-unused-vars\", 2, \"'historicalUnused' is assigned a value but never used.\", 1, 7]",
+            "path": "src/legacy.js"
+          }
+        ],
+        "stdoutSha256": "215a7f13555afd85898802d84bc1c3f1d68b7bda32a473a0ee812e33989dfe92",
+        "stderrSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "elapsedSeconds": 0.2625,
+        "finishedAt": "2026-10-20T07:40:49.359188+00:00"
+      },
+      {
+        "id": "types",
+        "kind": "typecheck",
+        "adapter": "tsc",
+        "command": {
+          "argv": [
+            "node",
+            "node_modules/typescript/bin/tsc",
+            "--noEmit",
+            "--pretty",
+            "false"
+          ],
+          "resolvedExecutable": "C:\\Users\\REDACTED\\AppData\\Local\\Programs\\node-v24.19.0\\node.exe",
+          "fileSha256": {
+            "C:\\Users\\REDACTED\\AppData\\Local\\Programs\\node-v24.19.0\\node.exe": "3602f2bb1a10f2cbab4c36886218a33c1ab3db87290e73b033c46c77147d0237",
+            "C:\\Projects\\agent-quality-skill\\.work\\demo-fea5988351\\node_modules\\typescript\\bin\\tsc": "8d5fa5bd883fec0979fc2004f1fe1d99aef40570155d550eadc0b03b55513bf0"
+          }
+        },
+        "cwd": "C:\\Projects\\agent-quality-skill\\.work\\demo-fea5988351",
+        "startedAt": "2026-10-20T07:40:49.730898+00:00",
+        "status": "complete",
+        "exitCode": 2,
+        "stdout": "types/current.ts(2,14): error TS2322: Type 'string' is not assignable to type 'number'.\r\ntypes/legacy.ts(1,14): error TS2322: Type 'number' is not assignable to type 'string'.\r\n",
+        "stderr": "",
+        "findings": [
+          {
+            "identity": "[\"types/current.ts\", \"2\", \"14\", \"TS2322\", \"Type 'string' is not assignable to type 'number'.\"]",
+            "path": "types/current.ts"
+          },
+          {
+            "identity": "[\"types/legacy.ts\", \"1\", \"14\", \"TS2322\", \"Type 'number' is not assignable to type 'string'.\"]",
+            "path": "types/legacy.ts"
+          }
+        ],
+        "stdoutSha256": "ee46a25c2e1973c08774d53cdc9faa0732f294e62c33a19daf8914c77e45fa26",
+        "stderrSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "elapsedSeconds": 0.7488,
+        "finishedAt": "2026-10-20T07:40:50.479647+00:00"
+      },
+      {
+        "id": "tests",
+        "kind": "tests",
+        "adapter": "node-test-tap",
+        "command": {
+          "argv": [
+            "node",
+            "--test",
+            "--test-reporter=tap",
+            "test/calculator.test.mjs"
+          ],
+          "resolvedExecutable": "C:\\Users\\REDACTED\\AppData\\Local\\Programs\\node-v24.19.0\\node.exe",
+          "fileSha256": {
+            "C:\\Users\\REDACTED\\AppData\\Local\\Programs\\node-v24.19.0\\node.exe": "3602f2bb1a10f2cbab4c36886218a33c1ab3db87290e73b033c46c77147d0237",
+            "C:\\Projects\\agent-quality-skill\\.work\\demo-fea5988351\\test\\calculator.test.mjs": "96c60f1d41e43c125b5e141a91c05780e4ae440160d866c744198fce7e35e64c"
+          }
+        },
+        "cwd": "C:\\Projects\\agent-quality-skill\\.work\\demo-fea5988351",
+        "startedAt": "2026-10-20T07:40:50.855447+00:00",
+        "status": "complete",
+        "exitCode": 1,
+        "stdout": "TAP version 13\n# Subtest: adds positive numbers\nnot ok 1 - adds positive numbers\n  ---\n  duration_ms: 1.1407\n  type: 'test'\n  location: 'C:\\\\Projects\\\\agent-quality-skill\\\\.work\\\\demo-fea5988351\\\\test\\\\calculator.test.mjs:5:1'\n  failureType: 'testCodeFailure'\n  error: |-\n    Expected values to be strictly equal:\n    \n    -1 !== 5\n    \n  code: 'ERR_ASSERTION'\n  name: 'AssertionError'\n  expected: 5\n  actual: -1\n  operator: 'strictEqual'\n  stack: |-\n    TestContext.<anonymous> (file:///D:/ChatGPTProjects/agent-quality-skill/.work/demo-fea5988351/test/calculator.test.mjs:5:44)\n    Test.runInAsyncScope (node:async_hooks:227:14)\n    Test.run (node:internal/test_runner/test:1382:25)\n    Test.start (node:internal/test_runner/test:1242:17)\n    startSubtestAfterBootstrap (node:internal/test_runner/harness:387:17)\n  ...\n# Subtest: adds signed numbers\nnot ok 2 - adds signed numbers\n  ---\n  duration_ms: 0.1771\n  type: 'test'\n  location: 'C:\\\\Projects\\\\agent-quality-skill\\\\.work\\\\demo-fea5988351\\\\test\\\\calculator.test.mjs:6:1'\n  failureType: 'testCodeFailure'\n  error: |-\n    Expected values to be strictly equal:\n    \n    -5 !== 1\n    \n  code: 'ERR_ASSERTION'\n  name: 'AssertionError'\n  expected: 1\n  actual: -5\n  operator: 'strictEqual'\n  stack: |-\n    TestContext.<anonymous> (file:///D:/ChatGPTProjects/agent-quality-skill/.work/demo-fea5988351/test/calculator.test.mjs:6:42)\n    Test.runInAsyncScope (node:async_hooks:227:14)\n    Test.run (node:internal/test_runner/test:1382:25)\n    Test.processPendingSubtests (node:internal/test_runner/test:960:18)\n    Test.postRun (node:internal/test_runner/test:1522:19)\n    Test.run (node:internal/test_runner/test:1447:12)\n    async startSubtestAfterBootstrap (node:internal/test_runner/harness:387:3)\n  ...\n1..2\n# tests 2\n# suites 0\n# pass 0\n# fail 2\n# cancelled 0\n# skipped 0\n# todo 0\n# duration_ms 73.3654\n",
+        "stderr": "",
+        "findings": [
+          {
+            "identity": "Node test command failed",
+            "path": null
+          }
+        ],
+        "stdoutSha256": "bcbb8a741776a6dfe5d4fe886275cdeec4c5f50c1ac07a13794283a6c7c1e973",
+        "stderrSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "testSummary": {
+          "tests": 2,
+          "suites": 0,
+          "pass": 0,
+          "fail": 2,
+          "cancelled": 0,
+          "skipped": 0,
+          "todo": 0
+        },
+        "elapsedSeconds": 0.1527,
+        "finishedAt": "2026-10-20T07:40:51.008193+00:00"
+      }
+    ],
+    "reasons": [],
+    "complete": true
+  },
+  "comparisons": [
+    {
+      "id": "eslint",
+      "kind": "lint",
+      "status": "regression",
+      "historical": [
+        {
+          "identity": "[\"src/legacy.js\", \"no-unused-vars\", 2, \"'historicalUnused' is assigned a value but never used.\", 1, 7]",
+          "path": "src/legacy.js"
+        }
+      ],
+      "introduced": [
+        {
+          "identity": "[\"src/calculator.mjs\", \"no-unused-vars\", 2, \"'accidentallyUnused' is assigned a value but never used.\", 1, 35]",
+          "path": "src/calculator.mjs"
+        }
+      ],
+      "unclassified": []
+    },
+    {
+      "id": "types",
+      "kind": "typecheck",
+      "status": "regression",
+      "historical": [
+        {
+          "identity": "[\"types/legacy.ts\", \"1\", \"14\", \"TS2322\", \"Type 'number' is not assignable to type 'string'.\"]",
+          "path": "types/legacy.ts"
+        }
+      ],
+      "introduced": [
+        {
+          "identity": "[\"types/current.ts\", \"2\", \"14\", \"TS2322\", \"Type 'string' is not assignable to type 'number'.\"]",
+          "path": "types/current.ts"
+        }
+      ],
+      "unclassified": []
+    },
+    {
+      "id": "tests",
+      "kind": "tests",
+      "status": "regression",
+      "historical": [],
+      "introduced": [
+        {
+          "identity": "Node test command failed",
+          "path": null
+        }
+      ],
+      "unclassified": []
+    }
+  ],
+  "verdict": "regression",
+  "reasons": [],
+  "claim": "Absence of new regressions has not been established.",
+  "integritySha256": "a37f790598019fb9d850943d96285bcedaa1a1ba0eb3714a751be344468c8fe1"
+}

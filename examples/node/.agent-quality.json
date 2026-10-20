@@ -1,0 +1,8 @@
+{
+  "version": 1,
+  "checks": [
+    {"id":"eslint","kind":"lint","adapter":"eslint-json","argv":["node","node_modules/eslint/bin/eslint.js","src","--format","json"],"timeoutSeconds":30},
+    {"id":"types","kind":"typecheck","adapter":"tsc","argv":["node","node_modules/typescript/bin/tsc","--noEmit","--pretty","false"],"timeoutSeconds":30},
+    {"id":"tests","kind":"tests","adapter":"node-test-tap","argv":["node","--test","--test-reporter=tap","test/calculator.test.mjs"],"timeoutSeconds":30}
+  ]
+}
