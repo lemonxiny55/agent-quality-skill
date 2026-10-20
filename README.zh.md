@@ -70,7 +70,7 @@ Agent 还须检查实际发现范围；退出 0 本身不证明测试真的执�
 
 ## 真实 Demo 与开发验证
 
-[验证记录](references/validation.md)链接 Windows/Linux 原始测试日志、真实工具凭证和真实 Agent 转录。
+[验证记录](references/validation.md)链接 Windows/Linux 原始测试日志、真实工具凭证和经过审计的 Codex E2E 摘要；原始 Agent 转录及本机调用细节不公开。
 归档凭证只属于当时记录的工作区，不能证明当前克隆状态。
 
 ```sh

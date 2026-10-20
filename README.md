@@ -85,8 +85,8 @@ freshness only: inspect `effectiveVerdict` too.
 ## Real evidence and reproduction
 
 The checked-in [validation record](references/validation.md) links raw Windows/Linux
-test logs, real-tool receipts and the actual Agent transcript. Archived receipts
-belong to the workspaces in which they were captured; they do not certify this clone.
+test logs, real-tool receipts and the audited Codex E2E summary. The original Agent
+transcript and local invocation details are withheld. Archived receipts belong to the workspaces in which they were captured; they do not certify this clone.
 
 To run the real demo from this source directory:
 
