@@ -24,11 +24,7 @@ CLI 不依赖 DSH，不包含遥测、账号系统或网络服务。
 | GitHub Copilot | `.github/skills/agent-quality-skill/` |
 
 确保目录内直接包含 `SKILL.md`、`scripts` 和 `references`。
-完整 Skill E2E 已验证的是 Windows 上的 Codex CLI 0.163.0-alpha.10.2 显式调用。
-另有一次 Claude Code 2.1.226 Windows 运行报告完成了质量 CLI 工作流，但它手动阅读
-`SKILL.md` 后执行 CLI；报告称原生 Skill 调用不可用，运行时模型为 Fable 5 而非预期的
-Sonnet。因此 Claude Code 的原生 Skill 发现／调用仍未验证。Cursor／Copilot 尚未运行。
-详情见[验证记录](references/validation.md)和[兼容矩阵](references/compatibility.md)。
+Windows 上的 Codex CLI 0.163.0-alpha.10.2 与 Claude Code CLI 2.1.226 均有一次隔离任务的原生 Skill 调用证据。Claude 任务中的 lint、类型检查和 4/4 TAP 测试分别通过，但总收据为 `incomplete`：配置中的测试入口文件在 baseline 后发生变化，因此本次不声称 `no_new_observed`。此前 Claude 手动读取 SKILL.md 的工作流及收据仍是独立有效证据。原始事件记录中的模型字段为 `glm-5.2`，用户界面报告为“Fable 5”；用户说明实际使用的是中国模型／提供方，不是 Anthropic Claude。Cursor／Copilot 尚未运行。详情见[验证记录](references/validation.md)和[兼容矩阵](references/compatibility.md)。
 
 在开始编辑前于 Codex 调用 `$agent-quality-skill`、于 Claude Code 调用 `/agent-quality-skill`，
 或让 Agent 阅读安装目录里的 SKILL.md。
@@ -112,8 +108,7 @@ Git 忽略的未跟踪输入、已安装依赖的传递文件及外部服务无�
 [技术调研与来源](references/feasibility.md) · [兼容矩阵](references/compatibility.md) ·
 [验证记录](references/validation.md) · [Agensi 文案与引流计划](references/agensi-listing.md)
 
-当前达到 **PUBLIC RELEASE / AGENSI SUBMISSION READY**，范围限于已验证的 Codex 流程及文档明确的技术边界，
-不表示三个主要宿主已实测通过或 Agensi 已接收。
+当前达到 **PUBLIC RELEASE / AGENSI SUBMISSION READY**，范围限于已验证的 Codex 流程和一次 Windows Claude Code 原生 Skill 调用。Claude 任务总收据为 `incomplete`，不声称 `no_new_observed`。Cursor／Copilot 及 Agensi 服务端验收仍未验证。
 没有正式上架、设置付费价格或对外发布推广。
 
 MIT © 2026 lemonxiny55。[许可](LICENSE) · [来源归属](NOTICE)。
