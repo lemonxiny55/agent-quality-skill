@@ -110,7 +110,7 @@ Git 忽略的未跟踪输入、已安装依赖的传递文件及外部服务无�
 [技术调研与来源](references/feasibility.md) · [兼容矩阵](references/compatibility.md) ·
 [验证记录](references/validation.md) · [Agensi 文案与引流计划](references/agensi-listing.md)
 
-当前达到 **LISTING CANDIDATE READY**，范围限于已验证的 Codex 流程及文档明确的技术边界，
+当前达到 **PUBLIC RELEASE / AGENSI SUBMISSION READY**，范围限于已验证的 Codex 流程及文档明确的技术边界，
 不表示三个主要宿主已实测通过或 Agensi 已接收。
 没有正式上架、设置付费价格或对外发布推广。
 

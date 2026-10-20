@@ -141,7 +141,7 @@ the exact [evidence contract](references/evidence-contract.md).
 [Compatibility](references/compatibility.md) · [Verification](references/validation.md) ·
 [Agensi copy and discovery plan](references/agensi-listing.md)
 
-Status: **LISTING CANDIDATE READY**, scoped to the verified Codex workflow and
+Status: **PUBLIC RELEASE / AGENSI SUBMISSION READY**, scoped to the verified Codex workflow and
 documented limitations in the validation record. This does not certify the three
 unverified primary hosts or Agensi acceptance. No marketplace submission, price setting or
 public promotional message is performed by the project scripts.
