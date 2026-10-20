@@ -1,0 +1,114 @@
+{
+  "recordType": "sanitized Claude Code E2E summary; not a raw session transcript",
+  "evidenceSource": "user-returned run report plus locally available quality receipts; raw Claude CLI JSONL transcript was not provided",
+  "host": "Claude Code CLI 2.1.226",
+  "reportedModel": "claude-fable-5[1m] (Fable 5); not the requested Sonnet model",
+  "modelProvenance": "model ID reported from the runtime-injected harness prompt; not independently confirmed from a raw CLI event log",
+  "operatingSystem": "Windows 11 Pro for Workstations 10.0.26300 (win32)",
+  "shell": "Git Bash (POSIX sh), as reported",
+  "python": "3.13.9 (Anaconda), as reported",
+  "node": "v24.19.0",
+  "eslint": "9.39.5",
+  "typescript": "5.9.3",
+  "skillInstallPath": ".claude/skills/agent-quality-skill/",
+  "skillInvocation": {
+    "nativeSlashOrSkillTool": "not available in the reported session",
+    "actualMethod": "manually read installed SKILL.md and directly ran its CLI",
+    "fullHostSkillInvocationVerified": false
+  },
+  "workflow": [
+    {
+      "step": "baseline",
+      "verdict": "baseline_ready",
+      "beforeEditAttested": true
+    },
+    {
+      "step": "injected regression",
+      "verdict": "regression",
+      "eslintNewFindings": 2,
+      "typecheckNewFindings": 0,
+      "testCommandFailure": 1,
+      "nodeTests": {
+        "tests": 2,
+        "pass": 0,
+        "fail": 2
+      }
+    },
+    {
+      "step": "restored source",
+      "verdict": "no_new_observed",
+      "historicalFindingsRetained": 2,
+      "nodeTests": {
+        "tests": 2,
+        "pass": 2,
+        "fail": 0
+      }
+    },
+    {
+      "step": "missing baseline",
+      "verdict": "incomplete"
+    },
+    {
+      "step": "malformed baseline",
+      "verdict": "incomplete"
+    }
+  ],
+  "freshness": {
+    "sameSessionResult": "run report says final receipt was fresh; regression receipt became stale after source restoration",
+    "independentCrossShellCheck": {
+      "artifactIntegrity": "verified hash (unsigned; not tamper-proof)",
+      "fresh": false,
+      "savedVerdict": "no_new_observed",
+      "effectiveVerdict": "incomplete",
+      "reasons": [
+        "receipt stale: configuration/environment changed"
+      ]
+    },
+    "interpretation": "the separate PowerShell-inherited environment changes the aggregate environment fingerprint; this check does not reproduce the original Git Bash session freshness result"
+  },
+  "scopeLimitations": [
+    "one isolated Windows fixture",
+    "manual SKILL.md/CLI workflow; native Claude Skill discovery/invocation not verified",
+    "runtime-reported Fable model, not requested Sonnet",
+    "raw CLI transcript unavailable",
+    "unsigned receipts"
+  ],
+  "originalReceiptSha256": {
+    "before.json": "6404c8e531e5152b1e50de6ef801302ff90f414f81cbeab5c3a750ad0182ce82",
+    "regression.json": "0170a9c87728d37134f63933a6ff09df470db4be6939e9c70790a59ae4f21823",
+    "clean.json": "14f50dd5f8cedead455fff9454721cd554766def4775f2a6c5f649f897d9220a",
+    "missing-baseline.json": "61c31bc2789067f4b71fc0b8d9229224ac6489b04368e1d8364dee335daae047",
+    "corrupt.json": "d86dd77f48e49bd250dd61209a9278ff96b16964ef8b4c1079b0820480b0d925",
+    "corrupt-baseline.json": "021fb596db81e6d02bf3d2586ee3981fe519f275c0ac9ca76bbcf2ebb4097d96"
+  },
+  "sanitizedReceiptSha256": {
+    "before.json": "04446bfd2e16a1106313a1f4ab00ad0b059170d64fcf4596eddf32af8c4be308",
+    "regression.json": "e9a2220d5b1a1dd64bb6080856f038d85875c1260cbe8e9f4d7fa36c418946cc",
+    "clean.json": "6af7053c07e4ba62c1eec2e2911ebe6cf5bd4291efce8b90fc2072a11995c593",
+    "missing-baseline.json": "566ebd3b593733a788d964838792b7e3cadf555eea6662a47b23ec6e61c228b3",
+    "corrupt.json": "49694444957e99e7b4e94fa2db60a51acd834f9f4fead16cc4e54f66980b9f2c",
+    "corrupt-baseline.json": "021fb596db81e6d02bf3d2586ee3981fe519f275c0ac9ca76bbcf2ebb4097d96",
+    "stale-check.json": "0be2bb25a78967972c3f1da080166ec964b3ec3002bf3a9e140ca4079ff7ab42"
+  },
+  "artifacts": {
+    "before.json": "04446bfd2e16a1106313a1f4ab00ad0b059170d64fcf4596eddf32af8c4be308",
+    "regression.json": "e9a2220d5b1a1dd64bb6080856f038d85875c1260cbe8e9f4d7fa36c418946cc",
+    "clean.json": "6af7053c07e4ba62c1eec2e2911ebe6cf5bd4291efce8b90fc2072a11995c593",
+    "missing-baseline.json": "566ebd3b593733a788d964838792b7e3cadf555eea6662a47b23ec6e61c228b3",
+    "corrupt.json": "49694444957e99e7b4e94fa2db60a51acd834f9f4fead16cc4e54f66980b9f2c",
+    "corrupt-baseline.json": "021fb596db81e6d02bf3d2586ee3981fe519f275c0ac9ca76bbcf2ebb4097d96",
+    "stale-check.json": "0be2bb25a78967972c3f1da080166ec964b3ec3002bf3a9e140ca4079ff7ab42"
+  },
+  "sanitizedArtifactDirectory": "evidence/release/agent-e2e-claude/",
+  "pathRedactions": "fixture root replaced with C:\\Projects\\agent-quality-skill\\.work\\demo-claude; user home redacted; receipt integrity hashes recalculated (unsigned)",
+  "commandTemplates": [
+    "python \"<skill>/scripts/quality.py\" plan --repo \"<fixture>\"",
+    "python \"<skill>/scripts/quality.py\" baseline --repo \"<fixture>\" --before-edit --execute --out \"<fixture>/.agent-quality/claude-e2e.before.json\"",
+    "python \"<skill>/scripts/quality.py\" verify --repo \"<fixture>\" --baseline \"<fixture>/.agent-quality/claude-e2e.before.json\" --execute --out \"<fixture>/.agent-quality/claude-e2e.regression.json\"",
+    "python \"<skill>/scripts/quality.py\" verify --repo \"<fixture>\" --baseline \"<fixture>/.agent-quality/claude-e2e.before.json\" --execute --out \"<fixture>/.agent-quality/claude-e2e.final.json\"",
+    "python \"<skill>/scripts/quality.py\" check-receipt --repo \"<fixture>\" --receipt \"<fixture>/.agent-quality/claude-e2e.final.json\"",
+    "python \"<skill>/scripts/quality.py\" verify --repo \"<fixture>\" --execute --out \"<fixture>/.agent-quality/claude-e2e.nobaseline.json\"",
+    "python \"<skill>/scripts/quality.py\" verify --repo \"<fixture>\" --baseline \"<fixture>/.agent-quality/claude-e2e.corrupt-baseline.json\" --execute --out \"<fixture>/.agent-quality/claude-e2e.corrupt.json\""
+  ],
+  "commandTemplatesNote": "Path-redacted templates transcribed from the returned report; not raw CLI command events."
+}

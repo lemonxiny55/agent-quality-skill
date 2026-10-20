@@ -24,9 +24,11 @@ CLI 不依赖 DSH，不包含遥测、账号系统或网络服务。
 | GitHub Copilot | `.github/skills/agent-quality-skill/` |
 
 确保目录内直接包含 `SKILL.md`、`scripts` 和 `references`。
-实测通过的是 Windows 上的 Codex CLI 0.163.0-alpha.10.2 显式调用。
-Claude Code 实测因 API 连接失败未能验证；Cursor／Copilot 尚未运行。
-文档声明不能替代实测，具体状态见[兼容矩阵](references/compatibility.md)。
+完整 Skill E2E 已验证的是 Windows 上的 Codex CLI 0.163.0-alpha.10.2 显式调用。
+另有一次 Claude Code 2.1.226 Windows 运行报告完成了质量 CLI 工作流，但它手动阅读
+`SKILL.md` 后执行 CLI；报告称原生 Skill 调用不可用，运行时模型为 Fable 5 而非预期的
+Sonnet。因此 Claude Code 的原生 Skill 发现／调用仍未验证。Cursor／Copilot 尚未运行。
+详情见[验证记录](references/validation.md)和[兼容矩阵](references/compatibility.md)。
 
 在开始编辑前于 Codex 调用 `$agent-quality-skill`、于 Claude Code 调用 `/agent-quality-skill`，
 或让 Agent 阅读安装目录里的 SKILL.md。

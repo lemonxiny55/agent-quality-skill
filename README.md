@@ -29,9 +29,11 @@ result in `dist/`, then extract the ZIP's **contents** into one of these directo
 The resulting path must be `.../agent-quality-skill/SKILL.md`. Personal installation
 paths and actual verification status are in [compatibility](references/compatibility.md).
 **Verified:** Codex CLI 0.163.0-alpha.10.2 on Windows, explicit Skill invocation.
-Claude Code's attempted run was blocked by API connection failure; Cursor and
-Copilot were not run. Only the recorded Agent/OS combination is an E2E claim; documented discovery paths
-for other hosts are not test results. The ZIP itself is not a published listing.
+**Partially exercised:** A Claude Code 2.1.226 Windows run completed the quality CLI
+workflow after manually reading `SKILL.md`. The report says native Skill invocation
+was unavailable and the runtime-reported model was Fable 5, not requested Sonnet.
+Native Claude Skill discovery/invocation is therefore unverified. Cursor and Copilot
+were not run. See the [validation record](references/validation.md).
 
 ## Use
 
