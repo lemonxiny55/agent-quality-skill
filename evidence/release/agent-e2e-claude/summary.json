@@ -82,25 +82,25 @@
     "corrupt-baseline.json": "021fb596db81e6d02bf3d2586ee3981fe519f275c0ac9ca76bbcf2ebb4097d96"
   },
   "sanitizedReceiptSha256": {
-    "before.json": "04446bfd2e16a1106313a1f4ab00ad0b059170d64fcf4596eddf32af8c4be308",
-    "regression.json": "e9a2220d5b1a1dd64bb6080856f038d85875c1260cbe8e9f4d7fa36c418946cc",
-    "clean.json": "6af7053c07e4ba62c1eec2e2911ebe6cf5bd4291efce8b90fc2072a11995c593",
-    "missing-baseline.json": "566ebd3b593733a788d964838792b7e3cadf555eea6662a47b23ec6e61c228b3",
-    "corrupt.json": "49694444957e99e7b4e94fa2db60a51acd834f9f4fead16cc4e54f66980b9f2c",
+    "before.json": "b38be6336eac0ae86ea112906fea3feace92f6eb18f566917007960bf63e33bc",
+    "regression.json": "bbf964480e11e371f6daab07d903f95a8a2f65336a41e1c52c0c49959b75848f",
+    "clean.json": "d774e0a8edf3d0cffe773c54ecd27a2e0ed06e9135b1bca57a395070b8176e27",
+    "missing-baseline.json": "85301024915a06c7eefca96abe3ec2d33dd2404ac5ffee06b50273a6dd8c6bd8",
+    "corrupt.json": "edeeda04588c1d95690254c06d0c0826441f1b613f21dc35f90dd00bff41ea6f",
     "corrupt-baseline.json": "021fb596db81e6d02bf3d2586ee3981fe519f275c0ac9ca76bbcf2ebb4097d96",
     "stale-check.json": "0be2bb25a78967972c3f1da080166ec964b3ec3002bf3a9e140ca4079ff7ab42"
   },
   "artifacts": {
-    "before.json": "04446bfd2e16a1106313a1f4ab00ad0b059170d64fcf4596eddf32af8c4be308",
-    "regression.json": "e9a2220d5b1a1dd64bb6080856f038d85875c1260cbe8e9f4d7fa36c418946cc",
-    "clean.json": "6af7053c07e4ba62c1eec2e2911ebe6cf5bd4291efce8b90fc2072a11995c593",
-    "missing-baseline.json": "566ebd3b593733a788d964838792b7e3cadf555eea6662a47b23ec6e61c228b3",
-    "corrupt.json": "49694444957e99e7b4e94fa2db60a51acd834f9f4fead16cc4e54f66980b9f2c",
+    "before.json": "b38be6336eac0ae86ea112906fea3feace92f6eb18f566917007960bf63e33bc",
+    "regression.json": "bbf964480e11e371f6daab07d903f95a8a2f65336a41e1c52c0c49959b75848f",
+    "clean.json": "d774e0a8edf3d0cffe773c54ecd27a2e0ed06e9135b1bca57a395070b8176e27",
+    "missing-baseline.json": "85301024915a06c7eefca96abe3ec2d33dd2404ac5ffee06b50273a6dd8c6bd8",
+    "corrupt.json": "edeeda04588c1d95690254c06d0c0826441f1b613f21dc35f90dd00bff41ea6f",
     "corrupt-baseline.json": "021fb596db81e6d02bf3d2586ee3981fe519f275c0ac9ca76bbcf2ebb4097d96",
     "stale-check.json": "0be2bb25a78967972c3f1da080166ec964b3ec3002bf3a9e140ca4079ff7ab42"
   },
   "sanitizedArtifactDirectory": "evidence/release/agent-e2e-claude/",
-  "pathRedactions": "fixture root replaced with C:\\Projects\\agent-quality-skill\\.work\\demo-claude; user home redacted; receipt integrity hashes recalculated (unsigned)",
+  "pathRedactions": "Absolute fixture and runtime paths, including nested output strings and object keys, were replaced with synthetic portable placeholders; command-output and artifact integrity hashes were recomputed. Raw original receipts remain local.",
   "commandTemplates": [
     "python \"<skill>/scripts/quality.py\" plan --repo \"<fixture>\"",
     "python \"<skill>/scripts/quality.py\" baseline --repo \"<fixture>\" --before-edit --execute --out \"<fixture>/.agent-quality/claude-e2e.before.json\"",
@@ -112,3 +112,4 @@
   ],
   "commandTemplatesNote": "Path-redacted templates transcribed from the returned report; not raw CLI command events."
 }
+
