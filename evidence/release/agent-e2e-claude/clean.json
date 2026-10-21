@@ -4,7 +4,7 @@
   "version": "0.1.0",
   "implementationSha256": "5da035d8c505de33e8c9bb212c1e0de646f52469e02d4a0be62ea69eab9e62b7",
   "createdAt": "2026-10-20T08:48:40.591438+00:00",
-  "repo": "C:\\Projects\\agent-quality-skill\\.work\\demo-claude",
+  "repo": "X:\\fixture",
   "environment": {
     "platform": "win32",
     "python": "3.13.9 | packaged by Anaconda, Inc. | (main, Oct 21 2025, 19:09:58) [MSC v.1929 64 bit (AMD64)]",
@@ -56,7 +56,7 @@
   },
   "baseline": {
     "id": "a3ae086a-fa15-4647-919d-c0df2f4deb26",
-    "integritySha256": "b0cebba00ef46d3042cf242c5a643351bac3c8fd22c2d1c195e2d95cdab58bf3",
+    "integritySha256": "8bdc0bc7cec5e01ad012ab9cb85c4f55c3e07969fb634cbe536b37fe8bb6337a",
     "trust": "local capture; user attests it predates edits; unsigned"
   },
   "changes": [],
@@ -216,17 +216,17 @@
             "--format",
             "json"
           ],
-          "resolvedExecutable": "C:\\Users\\REDACTED\\AppData\\Local\\Programs\\node-v24.19.0\\node.exe",
+          "resolvedExecutable": "X:\\toolchain\\node.exe",
           "fileSha256": {
-            "C:\\Users\\18439\\AppData\\Local\\Programs\\node-v24.19.0\\node.exe": "3602f2bb1a10f2cbab4c36886218a33c1ab3db87290e73b033c46c77147d0237",
-            "D:\\ChatGPTProjects\\agent-quality-skill\\.work\\claude-code-e2e-20261020\\fixture\\node_modules\\eslint\\bin\\eslint.js": "6280b95e2a6ab3b04be45cbd3b1627654be518e6a4da163ec0adcbba9cd5fcd8"
+            "X:\\toolchain\\node.exe": "3602f2bb1a10f2cbab4c36886218a33c1ab3db87290e73b033c46c77147d0237",
+            "X:\\fixture\\node_modules\\eslint\\bin\\eslint.js": "6280b95e2a6ab3b04be45cbd3b1627654be518e6a4da163ec0adcbba9cd5fcd8"
           }
         },
-        "cwd": "C:\\Projects\\agent-quality-skill\\.work\\demo-claude",
+        "cwd": "X:\\fixture",
         "startedAt": "2026-10-20T08:48:38.158292+00:00",
         "status": "complete",
         "exitCode": 1,
-        "stdout": "[{\"filePath\": \"C:\\\\Projects\\\\agent-quality-skill\\\\.work\\\\demo-claude\\\\src\\\\calculator.mjs\", \"messages\": [], \"suppressedMessages\": [], \"errorCount\": 0, \"fatalErrorCount\": 0, \"warningCount\": 0, \"fixableErrorCount\": 0, \"fixableWarningCount\": 0, \"usedDeprecatedRules\": []}, {\"filePath\": \"C:\\\\Projects\\\\agent-quality-skill\\\\.work\\\\demo-claude\\\\src\\\\legacy.js\", \"messages\": [{\"ruleId\": \"no-unused-vars\", \"severity\": 2, \"message\": \"'historicalUnused' is assigned a value but never used.\", \"line\": 1, \"column\": 7, \"nodeType\": \"Identifier\", \"messageId\": \"unusedVar\", \"endLine\": 1, \"endColumn\": 23, \"suggestions\": [{\"messageId\": \"removeVar\", \"data\": {\"varName\": \"historicalUnused\"}, \"fix\": {\"range\": [0, 27], \"text\": \"\"}, \"desc\": \"Remove unused variable 'historicalUnused'.\"}]}], \"suppressedMessages\": [], \"errorCount\": 1, \"fatalErrorCount\": 0, \"warningCount\": 0, \"fixableErrorCount\": 0, \"fixableWarningCount\": 0, \"source\": \"const historicalUnused = 1;\\n\", \"usedDeprecatedRules\": []}]",
+        "stdout": "[{\"filePath\":\"X:\\\\fixture\\\\src\\\\calculator.mjs\",\"messages\":[],\"suppressedMessages\":[],\"errorCount\":0,\"fatalErrorCount\":0,\"warningCount\":0,\"fixableErrorCount\":0,\"fixableWarningCount\":0,\"usedDeprecatedRules\":[]},{\"filePath\":\"X:\\\\fixture\\\\src\\\\legacy.js\",\"messages\":[{\"ruleId\":\"no-unused-vars\",\"severity\":2,\"message\":\"'historicalUnused' is assigned a value but never used.\",\"line\":1,\"column\":7,\"nodeType\":\"Identifier\",\"messageId\":\"unusedVar\",\"endLine\":1,\"endColumn\":23,\"suggestions\":[{\"messageId\":\"removeVar\",\"data\":{\"varName\":\"historicalUnused\"},\"fix\":{\"range\":[0,27],\"text\":\"\"},\"desc\":\"Remove unused variable 'historicalUnused'.\"}]}],\"suppressedMessages\":[],\"errorCount\":1,\"fatalErrorCount\":0,\"warningCount\":0,\"fixableErrorCount\":0,\"fixableWarningCount\":0,\"source\":\"const historicalUnused = 1;\\n\",\"usedDeprecatedRules\":[]}]",
         "stderr": "",
         "findings": [
           {
@@ -234,7 +234,7 @@
             "path": "src/legacy.js"
           }
         ],
-        "stdoutSha256": "14e76a7bce5cd8749e22a754ef25c7886254863b8522d2a2f405540c6083df7b",
+        "stdoutSha256": "842691032d392386acc92e04fc7d0023883502907102db51883d4bc4c223c010",
         "stderrSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
         "elapsedSeconds": 0.2582,
         "finishedAt": "2026-10-20T08:48:38.416545+00:00"
@@ -251,13 +251,13 @@
             "--pretty",
             "false"
           ],
-          "resolvedExecutable": "C:\\Users\\REDACTED\\AppData\\Local\\Programs\\node-v24.19.0\\node.exe",
+          "resolvedExecutable": "X:\\toolchain\\node.exe",
           "fileSha256": {
-            "C:\\Users\\18439\\AppData\\Local\\Programs\\node-v24.19.0\\node.exe": "3602f2bb1a10f2cbab4c36886218a33c1ab3db87290e73b033c46c77147d0237",
-            "D:\\ChatGPTProjects\\agent-quality-skill\\.work\\claude-code-e2e-20261020\\fixture\\node_modules\\typescript\\bin\\tsc": "8d5fa5bd883fec0979fc2004f1fe1d99aef40570155d550eadc0b03b55513bf0"
+            "X:\\toolchain\\node.exe": "3602f2bb1a10f2cbab4c36886218a33c1ab3db87290e73b033c46c77147d0237",
+            "X:\\fixture\\node_modules\\typescript\\bin\\tsc": "8d5fa5bd883fec0979fc2004f1fe1d99aef40570155d550eadc0b03b55513bf0"
           }
         },
-        "cwd": "C:\\Projects\\agent-quality-skill\\.work\\demo-claude",
+        "cwd": "X:\\fixture",
         "startedAt": "2026-10-20T08:48:38.744711+00:00",
         "status": "complete",
         "exitCode": 2,
@@ -285,13 +285,13 @@
             "--test-reporter=tap",
             "test/calculator.test.mjs"
           ],
-          "resolvedExecutable": "C:\\Users\\REDACTED\\AppData\\Local\\Programs\\node-v24.19.0\\node.exe",
+          "resolvedExecutable": "X:\\toolchain\\node.exe",
           "fileSha256": {
-            "C:\\Users\\18439\\AppData\\Local\\Programs\\node-v24.19.0\\node.exe": "3602f2bb1a10f2cbab4c36886218a33c1ab3db87290e73b033c46c77147d0237",
-            "D:\\ChatGPTProjects\\agent-quality-skill\\.work\\claude-code-e2e-20261020\\fixture\\test\\calculator.test.mjs": "96c60f1d41e43c125b5e141a91c05780e4ae440160d866c744198fce7e35e64c"
+            "X:\\toolchain\\node.exe": "3602f2bb1a10f2cbab4c36886218a33c1ab3db87290e73b033c46c77147d0237",
+            "X:\\fixture\\test\\calculator.test.mjs": "96c60f1d41e43c125b5e141a91c05780e4ae440160d866c744198fce7e35e64c"
           }
         },
-        "cwd": "C:\\Projects\\agent-quality-skill\\.work\\demo-claude",
+        "cwd": "X:\\fixture",
         "startedAt": "2026-10-20T08:48:39.780817+00:00",
         "status": "complete",
         "exitCode": 0,
@@ -355,5 +355,6 @@
   "verdict": "no_new_observed",
   "reasons": [],
   "claim": "No new findings observed by the configured checks within the recorded scope.",
-  "integritySha256": "8b8fc4d5fca8b3245565b3a995fc5aad6567b53a87c50c9aac949a7323cd7e14"
+  "integritySha256": "752684cfec8318b859be3c0f1ee4763209d6e38df376ddd94588f35532526b64"
 }
+
