@@ -4,7 +4,7 @@
   "version": "0.1.0",
   "implementationSha256": "5da035d8c505de33e8c9bb212c1e0de646f52469e02d4a0be62ea69eab9e62b7",
   "createdAt": "2026-10-20T07:40:51.772125+00:00",
-  "repo": "C:\\Projects\\agent-quality-skill\\.work\\demo-fea5988351",
+  "repo": "examples/node",
   "environment": {
     "platform": "win32",
     "python": "3.13.9 | packaged by Anaconda, Inc. | (main, Oct 21 2025, 19:09:58) [MSC v.1929 64 bit (AMD64)]",
@@ -56,7 +56,7 @@
   },
   "baseline": {
     "id": "0e4e7a1c-8686-451a-b5fe-c47ea87d9b30",
-    "integritySha256": "3317721e8c0f14227603cacfb2976e597221ff3baefc49618fefd3fd43da4006",
+    "integritySha256": "57aedb04c7a9afd706d9aa209abf1e5a5a0d2fd0dceeb3af82310eaf5bc4c630",
     "trust": "local capture; user attests it predates edits; unsigned"
   },
   "changes": [
@@ -233,17 +233,17 @@
             "--format",
             "json"
           ],
-          "resolvedExecutable": "C:\\Users\\REDACTED\\AppData\\Local\\Programs\\node-v24.19.0\\node.exe",
+          "resolvedExecutable": "node",
           "fileSha256": {
-            "C:\\Users\\REDACTED\\AppData\\Local\\Programs\\node-v24.19.0\\node.exe": "3602f2bb1a10f2cbab4c36886218a33c1ab3db87290e73b033c46c77147d0237",
-            "C:\\Projects\\agent-quality-skill\\.work\\demo-fea5988351\\node_modules\\eslint\\bin\\eslint.js": "6280b95e2a6ab3b04be45cbd3b1627654be518e6a4da163ec0adcbba9cd5fcd8"
+            "node": "3602f2bb1a10f2cbab4c36886218a33c1ab3db87290e73b033c46c77147d0237",
+            "examples/node\\node_modules\\eslint\\bin\\eslint.js": "6280b95e2a6ab3b04be45cbd3b1627654be518e6a4da163ec0adcbba9cd5fcd8"
           }
         },
-        "cwd": "C:\\Projects\\agent-quality-skill\\.work\\demo-fea5988351",
+        "cwd": "examples/node",
         "startedAt": "2026-10-20T07:40:49.096670+00:00",
         "status": "complete",
         "exitCode": 1,
-        "stdout": "[{\"filePath\":\"C:\\\\Projects\\\\agent-quality-skill\\\\.work\\\\demo-fea5988351\\\\src\\\\calculator.mjs\",\"messages\":[{\"ruleId\":\"no-unused-vars\",\"severity\":2,\"message\":\"'accidentallyUnused' is assigned a value but never used.\",\"line\":1,\"column\":35,\"nodeType\":\"Identifier\",\"messageId\":\"unusedVar\",\"endLine\":1,\"endColumn\":53,\"suggestions\":[{\"messageId\":\"removeVar\",\"data\":{\"varName\":\"accidentallyUnused\"},\"fix\":{\"range\":[28,57],\"text\":\"\"},\"desc\":\"Remove unused variable 'accidentallyUnused'.\"}]}],\"suppressedMessages\":[],\"errorCount\":1,\"fatalErrorCount\":0,\"warningCount\":0,\"fixableErrorCount\":0,\"fixableWarningCount\":0,\"source\":\"export function add(a, b) { const accidentallyUnused = 1; return a - b; }\\r\\n\",\"usedDeprecatedRules\":[]},{\"filePath\":\"C:\\\\Projects\\\\agent-quality-skill\\\\.work\\\\demo-fea5988351\\\\src\\\\legacy.js\",\"messages\":[{\"ruleId\":\"no-unused-vars\",\"severity\":2,\"message\":\"'historicalUnused' is assigned a value but never used.\",\"line\":1,\"column\":7,\"nodeType\":\"Identifier\",\"messageId\":\"unusedVar\",\"endLine\":1,\"endColumn\":23,\"suggestions\":[{\"messageId\":\"removeVar\",\"data\":{\"varName\":\"historicalUnused\"},\"fix\":{\"range\":[0,27],\"text\":\"\"},\"desc\":\"Remove unused variable 'historicalUnused'.\"}]}],\"suppressedMessages\":[],\"errorCount\":1,\"fatalErrorCount\":0,\"warningCount\":0,\"fixableErrorCount\":0,\"fixableWarningCount\":0,\"source\":\"const historicalUnused = 1;\\n\",\"usedDeprecatedRules\":[]}]\n",
+        "stdout": "[{\"filePath\":\"src/calculator.mjs\",\"messages\":[{\"ruleId\":\"no-unused-vars\",\"severity\":2,\"message\":\"'accidentallyUnused' is assigned a value but never used.\",\"line\":1,\"column\":35,\"nodeType\":\"Identifier\",\"messageId\":\"unusedVar\",\"endLine\":1,\"endColumn\":53,\"suggestions\":[{\"messageId\":\"removeVar\",\"data\":{\"varName\":\"accidentallyUnused\"},\"fix\":{\"range\":[28,57],\"text\":\"\"},\"desc\":\"Remove unused variable 'accidentallyUnused'.\"}]}],\"suppressedMessages\":[],\"errorCount\":1,\"fatalErrorCount\":0,\"warningCount\":0,\"fixableErrorCount\":0,\"fixableWarningCount\":0,\"source\":\"export function add(a, b) { const accidentallyUnused = 1; return a - b; }\\r\\n\",\"usedDeprecatedRules\":[]},{\"filePath\":\"src/legacy.js\",\"messages\":[{\"ruleId\":\"no-unused-vars\",\"severity\":2,\"message\":\"'historicalUnused' is assigned a value but never used.\",\"line\":1,\"column\":7,\"nodeType\":\"Identifier\",\"messageId\":\"unusedVar\",\"endLine\":1,\"endColumn\":23,\"suggestions\":[{\"messageId\":\"removeVar\",\"data\":{\"varName\":\"historicalUnused\"},\"fix\":{\"range\":[0,27],\"text\":\"\"},\"desc\":\"Remove unused variable 'historicalUnused'.\"}]}],\"suppressedMessages\":[],\"errorCount\":1,\"fatalErrorCount\":0,\"warningCount\":0,\"fixableErrorCount\":0,\"fixableWarningCount\":0,\"source\":\"const historicalUnused = 1;\\n\",\"usedDeprecatedRules\":[]}]",
         "stderr": "",
         "findings": [
           {
@@ -255,7 +255,7 @@
             "path": "src/legacy.js"
           }
         ],
-        "stdoutSha256": "215a7f13555afd85898802d84bc1c3f1d68b7bda32a473a0ee812e33989dfe92",
+        "stdoutSha256": "e2301216701088004f7f50b8c77acdb2d83ace65a60c30811764ca29d38bff6c",
         "stderrSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
         "elapsedSeconds": 0.2625,
         "finishedAt": "2026-10-20T07:40:49.359188+00:00"
@@ -272,13 +272,13 @@
             "--pretty",
             "false"
           ],
-          "resolvedExecutable": "C:\\Users\\REDACTED\\AppData\\Local\\Programs\\node-v24.19.0\\node.exe",
+          "resolvedExecutable": "node",
           "fileSha256": {
-            "C:\\Users\\REDACTED\\AppData\\Local\\Programs\\node-v24.19.0\\node.exe": "3602f2bb1a10f2cbab4c36886218a33c1ab3db87290e73b033c46c77147d0237",
-            "C:\\Projects\\agent-quality-skill\\.work\\demo-fea5988351\\node_modules\\typescript\\bin\\tsc": "8d5fa5bd883fec0979fc2004f1fe1d99aef40570155d550eadc0b03b55513bf0"
+            "node": "3602f2bb1a10f2cbab4c36886218a33c1ab3db87290e73b033c46c77147d0237",
+            "examples/node\\node_modules\\typescript\\bin\\tsc": "8d5fa5bd883fec0979fc2004f1fe1d99aef40570155d550eadc0b03b55513bf0"
           }
         },
-        "cwd": "C:\\Projects\\agent-quality-skill\\.work\\demo-fea5988351",
+        "cwd": "examples/node",
         "startedAt": "2026-10-20T07:40:49.730898+00:00",
         "status": "complete",
         "exitCode": 2,
@@ -310,17 +310,17 @@
             "--test-reporter=tap",
             "test/calculator.test.mjs"
           ],
-          "resolvedExecutable": "C:\\Users\\REDACTED\\AppData\\Local\\Programs\\node-v24.19.0\\node.exe",
+          "resolvedExecutable": "node",
           "fileSha256": {
-            "C:\\Users\\REDACTED\\AppData\\Local\\Programs\\node-v24.19.0\\node.exe": "3602f2bb1a10f2cbab4c36886218a33c1ab3db87290e73b033c46c77147d0237",
-            "C:\\Projects\\agent-quality-skill\\.work\\demo-fea5988351\\test\\calculator.test.mjs": "96c60f1d41e43c125b5e141a91c05780e4ae440160d866c744198fce7e35e64c"
+            "node": "3602f2bb1a10f2cbab4c36886218a33c1ab3db87290e73b033c46c77147d0237",
+            "examples/node\\test\\calculator.test.mjs": "96c60f1d41e43c125b5e141a91c05780e4ae440160d866c744198fce7e35e64c"
           }
         },
-        "cwd": "C:\\Projects\\agent-quality-skill\\.work\\demo-fea5988351",
+        "cwd": "examples/node",
         "startedAt": "2026-10-20T07:40:50.855447+00:00",
         "status": "complete",
         "exitCode": 1,
-        "stdout": "TAP version 13\n# Subtest: adds positive numbers\nnot ok 1 - adds positive numbers\n  ---\n  duration_ms: 1.1407\n  type: 'test'\n  location: 'C:\\\\Projects\\\\agent-quality-skill\\\\.work\\\\demo-fea5988351\\\\test\\\\calculator.test.mjs:5:1'\n  failureType: 'testCodeFailure'\n  error: |-\n    Expected values to be strictly equal:\n    \n    -1 !== 5\n    \n  code: 'ERR_ASSERTION'\n  name: 'AssertionError'\n  expected: 5\n  actual: -1\n  operator: 'strictEqual'\n  stack: |-\n    TestContext.<anonymous> (file:///D:/ChatGPTProjects/agent-quality-skill/.work/demo-fea5988351/test/calculator.test.mjs:5:44)\n    Test.runInAsyncScope (node:async_hooks:227:14)\n    Test.run (node:internal/test_runner/test:1382:25)\n    Test.start (node:internal/test_runner/test:1242:17)\n    startSubtestAfterBootstrap (node:internal/test_runner/harness:387:17)\n  ...\n# Subtest: adds signed numbers\nnot ok 2 - adds signed numbers\n  ---\n  duration_ms: 0.1771\n  type: 'test'\n  location: 'C:\\\\Projects\\\\agent-quality-skill\\\\.work\\\\demo-fea5988351\\\\test\\\\calculator.test.mjs:6:1'\n  failureType: 'testCodeFailure'\n  error: |-\n    Expected values to be strictly equal:\n    \n    -5 !== 1\n    \n  code: 'ERR_ASSERTION'\n  name: 'AssertionError'\n  expected: 1\n  actual: -5\n  operator: 'strictEqual'\n  stack: |-\n    TestContext.<anonymous> (file:///D:/ChatGPTProjects/agent-quality-skill/.work/demo-fea5988351/test/calculator.test.mjs:6:42)\n    Test.runInAsyncScope (node:async_hooks:227:14)\n    Test.run (node:internal/test_runner/test:1382:25)\n    Test.processPendingSubtests (node:internal/test_runner/test:960:18)\n    Test.postRun (node:internal/test_runner/test:1522:19)\n    Test.run (node:internal/test_runner/test:1447:12)\n    async startSubtestAfterBootstrap (node:internal/test_runner/harness:387:3)\n  ...\n1..2\n# tests 2\n# suites 0\n# pass 0\n# fail 2\n# cancelled 0\n# skipped 0\n# todo 0\n# duration_ms 73.3654\n",
+        "stdout": "TAP version 13\n# Subtest: adds positive numbers\nnot ok 1 - adds positive numbers\n  ---\n  duration_ms: 1.1407\n  type: 'test'\n  location: 'examples/node\\\\test\\\\calculator.test.mjs:5:1'\n  failureType: 'testCodeFailure'\n  error: |-\n    Expected values to be strictly equal:\n    \n    -1 !== 5\n    \n  code: 'ERR_ASSERTION'\n  name: 'AssertionError'\n  expected: 5\n  actual: -1\n  operator: 'strictEqual'\n  stack: |-\n    TestContext.<anonymous> (file:///examples/node/test/calculator.test.mjs:5:44)\n    Test.runInAsyncScope (node:async_hooks:227:14)\n    Test.run (node:internal/test_runner/test:1382:25)\n    Test.start (node:internal/test_runner/test:1242:17)\n    startSubtestAfterBootstrap (node:internal/test_runner/harness:387:17)\n  ...\n# Subtest: adds signed numbers\nnot ok 2 - adds signed numbers\n  ---\n  duration_ms: 0.1771\n  type: 'test'\n  location: 'examples/node\\\\test\\\\calculator.test.mjs:6:1'\n  failureType: 'testCodeFailure'\n  error: |-\n    Expected values to be strictly equal:\n    \n    -5 !== 1\n    \n  code: 'ERR_ASSERTION'\n  name: 'AssertionError'\n  expected: 1\n  actual: -5\n  operator: 'strictEqual'\n  stack: |-\n    TestContext.<anonymous> (file:///examples/node/test/calculator.test.mjs:6:42)\n    Test.runInAsyncScope (node:async_hooks:227:14)\n    Test.run (node:internal/test_runner/test:1382:25)\n    Test.processPendingSubtests (node:internal/test_runner/test:960:18)\n    Test.postRun (node:internal/test_runner/test:1522:19)\n    Test.run (node:internal/test_runner/test:1447:12)\n    async startSubtestAfterBootstrap (node:internal/test_runner/harness:387:3)\n  ...\n1..2\n# tests 2\n# suites 0\n# pass 0\n# fail 2\n# cancelled 0\n# skipped 0\n# todo 0\n# duration_ms 73.3654\n",
         "stderr": "",
         "findings": [
           {
@@ -328,7 +328,7 @@
             "path": null
           }
         ],
-        "stdoutSha256": "bcbb8a741776a6dfe5d4fe886275cdeec4c5f50c1ac07a13794283a6c7c1e973",
+        "stdoutSha256": "8d877d42afae5f452aba48afe87873b77c974824ef308c839c5c992476297c67",
         "stderrSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
         "testSummary": {
           "tests": 2,
@@ -400,5 +400,5 @@
   "verdict": "regression",
   "reasons": [],
   "claim": "Absence of new regressions has not been established.",
-  "integritySha256": "a37f790598019fb9d850943d96285bcedaa1a1ba0eb3714a751be344468c8fe1"
+  "integritySha256": "9c3396762ff156268070964bc0ec700bc6a91aa602f3ad009ced1d72b7a862fe"
 }

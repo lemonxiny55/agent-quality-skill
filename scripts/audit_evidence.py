@@ -24,7 +24,7 @@ def audit(directory):
         assert receipt["implementationSha256"] == q.implementation_identity()
         for check in receipt["execution"]["checks"]:
             assert check["status"] == "complete"
-            replayed = q.parse_output(Path(receipt["repo"]), check["adapter"], check["stdout"], check["stderr"], check["exitCode"])
+            replayed = q.parse_output(Path(receipt["repo"]).resolve(), check["adapter"], check["stdout"], check["stderr"], check["exitCode"])
             assert replayed == check["findings"]
             if check["adapter"] == "node-test-tap":
                 assert q.node_test_summary(check["stdout"], check["exitCode"]) == check["testSummary"]
