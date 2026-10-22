@@ -82,20 +82,20 @@
     "corrupt-baseline.json": "021fb596db81e6d02bf3d2586ee3981fe519f275c0ac9ca76bbcf2ebb4097d96"
   },
   "sanitizedReceiptSha256": {
-    "before.json": "b38be6336eac0ae86ea112906fea3feace92f6eb18f566917007960bf63e33bc",
-    "regression.json": "bbf964480e11e371f6daab07d903f95a8a2f65336a41e1c52c0c49959b75848f",
-    "clean.json": "d774e0a8edf3d0cffe773c54ecd27a2e0ed06e9135b1bca57a395070b8176e27",
-    "missing-baseline.json": "85301024915a06c7eefca96abe3ec2d33dd2404ac5ffee06b50273a6dd8c6bd8",
-    "corrupt.json": "edeeda04588c1d95690254c06d0c0826441f1b613f21dc35f90dd00bff41ea6f",
+    "before.json": "c8f0936a444f78ef0ce30dd99a1916a6b9c131e2240505de61f6ddd8695876b1",
+    "regression.json": "4350bf0601c782326189ec767b118de7f66ad7c3846d414ace4230947002a16e",
+    "clean.json": "2c473c5e28208bd948d1319935d3cc98b86ef74dc797cd012fd30e210c9a5158",
+    "missing-baseline.json": "31d5378b88ef63c0cf6781f492a730792ad62a7111383fabda87e99ede9d1912",
+    "corrupt.json": "345100681470ffe23c1e0c5088cdb38c030b4e20f1e8cec86c207b8205a0e98f",
     "corrupt-baseline.json": "021fb596db81e6d02bf3d2586ee3981fe519f275c0ac9ca76bbcf2ebb4097d96",
     "stale-check.json": "0be2bb25a78967972c3f1da080166ec964b3ec3002bf3a9e140ca4079ff7ab42"
   },
   "artifacts": {
-    "before.json": "b38be6336eac0ae86ea112906fea3feace92f6eb18f566917007960bf63e33bc",
-    "regression.json": "bbf964480e11e371f6daab07d903f95a8a2f65336a41e1c52c0c49959b75848f",
-    "clean.json": "d774e0a8edf3d0cffe773c54ecd27a2e0ed06e9135b1bca57a395070b8176e27",
-    "missing-baseline.json": "85301024915a06c7eefca96abe3ec2d33dd2404ac5ffee06b50273a6dd8c6bd8",
-    "corrupt.json": "edeeda04588c1d95690254c06d0c0826441f1b613f21dc35f90dd00bff41ea6f",
+    "before.json": "c8f0936a444f78ef0ce30dd99a1916a6b9c131e2240505de61f6ddd8695876b1",
+    "regression.json": "4350bf0601c782326189ec767b118de7f66ad7c3846d414ace4230947002a16e",
+    "clean.json": "2c473c5e28208bd948d1319935d3cc98b86ef74dc797cd012fd30e210c9a5158",
+    "missing-baseline.json": "31d5378b88ef63c0cf6781f492a730792ad62a7111383fabda87e99ede9d1912",
+    "corrupt.json": "345100681470ffe23c1e0c5088cdb38c030b4e20f1e8cec86c207b8205a0e98f",
     "corrupt-baseline.json": "021fb596db81e6d02bf3d2586ee3981fe519f275c0ac9ca76bbcf2ebb4097d96",
     "stale-check.json": "0be2bb25a78967972c3f1da080166ec964b3ec3002bf3a9e140ca4079ff7ab42"
   },
