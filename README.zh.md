@@ -13,7 +13,7 @@ CLI 不依赖 DSH，不包含遥测、账号系统或网络服务。
 
 ## 安装和使用
 
-需要 Python 3.10+、Git、有至少一次提交的仓库，以及仓库已安装的检查工具。从 [lemonxiny55/delta-receipt](https://github.com/lemonxiny55/delta-receipt) 克隆源码，运行 `python scripts/package_skill.py` 后再安装。
+需要 Python 3.10+、Git、有至少一次提交的仓库，以及仓库已安装的检查工具。规范仓库地址为 [lemonxiny55/delta-receipt](https://github.com/lemonxiny55/delta-receipt)。远端改名完成前，请从当前仓库 [lemonxiny55/agent-quality-skill](https://github.com/lemonxiny55/agent-quality-skill) 克隆；旧地址会在改名后重定向。再运行 `python scripts/package_skill.py` 打包安装。
 先检查 ZIP 内容，再把**压缩包内的文件**解压至以下目录之一：
 
 | Agent | 项目内安装位置 |
@@ -24,7 +24,7 @@ CLI 不依赖 DSH，不包含遥测、账号系统或网络服务。
 | GitHub Copilot | `.github/skills/delta-receipt/` |
 
 确保目录内直接包含 `SKILL.md`、`scripts` 和 `references`。
-历史 v0.1.0 证据记录了 Windows 上 Codex CLI 0.163.0-alpha.10.2 与 Claude Code CLI 2.1.226 使用旧名称执行的隔离任务。DeltaReceipt v0.2.0 的新名称检查及原生宿主结果见[兼容矩阵](references/compatibility.md)。Claude 任务中的 lint、类型检查和 4/4 TAP 测试分别通过，但总收据为 `incomplete`：配置中的测试入口文件在 baseline 后发生变化，因此本次不声称 `no_new_observed`。此前 Claude 手动读取 SKILL.md 的工作流及收据仍是独立有效证据。原始事件记录中的模型字段为 `glm-5.2`，用户界面报告为“Fable 5”；用户说明实际使用的是中国模型／提供方，不是 Anthropic Claude。Cursor／Copilot 尚未运行。详情见[验证记录](references/validation.md)和[兼容矩阵](references/compatibility.md)。
+历史 v0.1.0 证据记录了 Windows 上 Codex CLI 0.163.0-alpha.10.2 与 Claude Code CLI 2.1.226 使用旧名称执行的隔离任务。DeltaReceipt v0.2.0 的新名称检查及原生宿主结果见[兼容矩阵](references/compatibility.md)。Claude 任务中的 lint、类型检查和 4/4 TAP 测试分别通过，但总收据为 `incomplete`：配置中的测试入口文件在 baseline 后发生变化，因此该历史任务不声称 `no_new_observed`。此前 Claude 手动读取 SKILL.md 的工作流及收据仍是独立有效证据。原始事件记录中的模型字段为 `glm-5.2`，用户界面报告为“Fable 5”；用户说明实际使用的是中国模型／提供方，不是 Anthropic Claude。Cursor／Copilot 尚未运行。详情见[验证记录](references/validation.md)和[兼容矩阵](references/compatibility.md)。
 
 在开始编辑前于 Codex 调用 `$delta-receipt`、于 Claude Code 调用 `/delta-receipt`，
 或让 Agent 阅读安装目录里的 SKILL.md。
@@ -108,9 +108,9 @@ Git 忽略的未跟踪输入、已安装依赖的传递文件及外部服务无�
 请保持工具／依赖不变、使用单写入者，并阅读[证据边界](references/evidence-contract.md)。
 
 [技术调研与来源](references/feasibility.md) · [兼容矩阵](references/compatibility.md) ·
-[验证记录](references/validation.md) · [Agensi 文案与引流计划](references/agensi-listing.md) · [迁移说明](references/migration.md) · [迁移说明](references/migration.md)
+[验证记录](references/validation.md) · [Agensi 文案与引流计划](references/agensi-listing.md) · [迁移说明](references/migration.md)
 
-当前为 **v0.2.0 更名草案**。v0.1.0 验证记录对应前身版本；v0.2.0 Codex 原生测试因环境变化得到 `incomplete`，Claude Code 则因 API `ConnectionRefused` 未能启动；两者都不能据此声称 `no_new_observed`。Cursor／Copilot 及 Agensi 服务端验收仍未验证。
+当前为 **v0.2.0 更名 Draft PR**。Codex CLI 0.163.0-alpha.11 已通过 DeltaReceipt 原生 E2E：baseline 与验证环境指纹一致，2/2 测试通过，收据为 `no_new_observed`，并保留两项历史发现。Claude Code CLI 2.1.226 在有限重试后仍于任务启动前遇到 API `ConnectionRefused`。自动选择、Cursor／Copilot 及 Agensi 服务端验收尚未验证。
 没有正式上架、设置付费价格或对外发布推广。
 
 MIT © 2026 lemonxiny55。[许可](LICENSE) · [来源归属](NOTICE)。

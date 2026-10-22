@@ -19,6 +19,35 @@ def git(root, *args):
 
 
 class Workspace(unittest.TestCase):
+    def test_legacy_quality_package_import_exposes_core_api(self):
+        from scripts import quality as legacy_q
+
+        self.assertIs(legacy_q.main, q.main)
+        self.assertIs(legacy_q.verify, q.verify)
+        self.assertIs(legacy_q.check_receipt, q.check_receipt)
+        legacy = "5da035d8c505de33e8c9bb212c1e0de646f52469e02d4a0be62ea69eab9e62b7"
+        self.assertTrue(legacy_q.implementation_identity_is_compatible(legacy))
+        self.assertFalse(legacy_q.implementation_identity_is_compatible("0" * 64))
+
+    def test_all_cli_entrypoints_support_help(self):
+        root = Path(__file__).resolve().parent.parent
+        commands = (
+            [sys.executable, "scripts/quality.py", "--help"],
+            [sys.executable, "-m", "scripts.quality", "--help"],
+            [sys.executable, "scripts/delta_receipt.py", "--help"],
+        )
+        for command in commands:
+            with self.subTest(command=command):
+                result = subprocess.run(
+                    command,
+                    cwd=root,
+                    capture_output=True,
+                    text=True,
+                    timeout=15,
+                )
+                self.assertEqual(result.returncode, 0, result.stderr)
+                self.assertIn("usage:", result.stdout.lower())
+
     def test_v010_receipt_fingerprint_remains_supported(self):
         legacy = "5da035d8c505de33e8c9bb212c1e0de646f52469e02d4a0be62ea69eab9e62b7"
         self.assertEqual(q.VERSION, "0.2.0")
@@ -42,7 +71,8 @@ class Workspace(unittest.TestCase):
         receipt["version"] = "0.1.0"
         receipt["implementationSha256"] = legacy
         q.save(receipt_path, receipt)
-        checked = q.check_receipt(self.root.resolve(), receipt_path)
+        from scripts import quality as legacy_q
+        checked = legacy_q.check_receipt(self.root.resolve(), receipt_path)
         self.assertTrue(checked["fresh"], checked["reasons"])
 
     def setUp(self):

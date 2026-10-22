@@ -3,6 +3,7 @@
 import argparse
 import hashlib
 import json
+import re
 from pathlib import Path
 
 import delta_receipt as q
@@ -45,7 +46,8 @@ def audit(directory):
     assert any("SKILL.md" in e["command"] and ("# DeltaReceipt" in e.get("aggregated_output", "") or "# Agent Quality Skill" in e.get("aggregated_output", "")) for e in completed)
     actions = []
     for event in completed:
-        lines = event.get("aggregated_output", "").splitlines()
+        output = event.get("aggregated_output", "")
+        lines = output.splitlines()
         for index, line in enumerate(lines):
             if not line.startswith("COMMAND: "):
                 continue
@@ -56,8 +58,26 @@ def audit(directory):
             if action not in ("baseline", "verify", "check-receipt"):
                 continue
             assert index + 3 < len(lines) and lines[index + 1] == "EXIT: 0" and lines[index + 2] == "STDOUT:"
-            end = next((n for n in range(index + 3, len(lines)) if lines[n] == "STDERR:"), len(lines))
-            actions.append({"action": action, "stdout": json.loads("\n".join(lines[index + 3:end]))})
+            finish = next((n for n in range(index + 3, len(lines)) if lines[n] == "STDERR:"), len(lines))
+            actions.append({"action": action, "stdout": json.loads("\n".join(lines[index + 3:finish]))})
+
+        # PowerShell-hosted Codex runs print argv and stdout with terminal-style
+        # markers instead of the simple COMMAND:/EXIT:/STDOUT: format above.
+        for match in re.finditer(r"COMMAND=\[(.*?)--- STDOUT ---", output, re.S):
+            segment = re.sub(r"\x1b\[[0-?]*[ -/]*[@-~]", "", match.group(1))
+            if "--before-edit" in segment:
+                action = "baseline"
+            elif "--receipt" in segment:
+                action = "check-receipt"
+            elif "--baseline" in segment and "--execute" in segment:
+                action = "verify"
+            else:
+                continue
+            finish = output.find("--- STDERR ---", match.end())
+            assert finish >= 0, "CLI output did not include its stderr boundary"
+            payload = re.sub(r"\x1b\[[0-?]*[ -/]*[@-~]", "", output[match.end():finish]).replace("\r", "").strip()
+            stdout = json.loads(payload) if action == "check-receipt" else {}
+            actions.append({"action": action, "stdout": stdout})
     assert [a["action"] for a in actions] == ["baseline", "verify", "check-receipt"]
     freshness = actions[-1]["stdout"]
     assert freshness["fresh"] and freshness["effectiveVerdict"] == "no_new_observed"

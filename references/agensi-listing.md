@@ -67,7 +67,7 @@ statistics if the maintainer later chooses; no analytics code is added here.
 ## Submission checklist
 
 The packager validates ZIP <50 MB, root SKILL.md, metadata, allowed supporting
-files and extraction. See validation.md for v0.1.0 historical results; the v0.2.0
-package and CI need their own verification. A candidate-ready decision is a local
+files and extraction. See validation.md for v0.1.0 historical results; the current Draft PR carries v0.2.0
+package and CI checks. A candidate-ready decision is a local
 technical assessment, not Agensi approval. Upload, free-listing selection, account
 agreements and outward promotion require the user's next explicit instruction.

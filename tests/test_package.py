@@ -60,10 +60,16 @@ class Package(unittest.TestCase):
                     archive.extractall(destination)
             for destination in install_paths:
                 self.assertTrue(validate(destination, require_directory_name=True)["valid"])
-                smoke = subprocess.run([sys.executable, str(destination / "scripts/delta_receipt.py"), "--help"], capture_output=True, text=True, timeout=10)
-                self.assertEqual(smoke.returncode, 0, smoke.stderr)
-            legacy = subprocess.run([sys.executable, str(install_paths[0] / "scripts/quality.py"), "--help"], capture_output=True, text=True, timeout=10)
-            self.assertEqual(legacy.returncode, 0, legacy.stderr)
+                commands = (
+                    [sys.executable, "scripts/quality.py", "--help"],
+                    [sys.executable, "-m", "scripts.quality", "--help"],
+                    [sys.executable, "-c", "from scripts import quality as q; assert callable(q.verify); assert q.implementation_identity_is_compatible('5da035d8c505de33e8c9bb212c1e0de646f52469e02d4a0be62ea69eab9e62b7')"],
+                    [sys.executable, "scripts/delta_receipt.py", "--help"],
+                )
+                for command in commands:
+                    with self.subTest(install_path=destination, command=command):
+                        result = subprocess.run(command, cwd=destination, capture_output=True, text=True, timeout=10)
+                        self.assertEqual(result.returncode, 0, result.stderr)
 
 
 if __name__ == "__main__":

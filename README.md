@@ -16,7 +16,7 @@ plugin for integrated edit feedback, lifecycle steering and safe repair.
 ## Install
 
 Requires Python 3.10+, Git, a repository with a commit and its checking tools already
-installed. Clone [lemonxiny55/delta-receipt](https://github.com/lemonxiny55/delta-receipt), run `python scripts/package_skill.py`, inspect the
+installed. The canonical source is [lemonxiny55/delta-receipt](https://github.com/lemonxiny55/delta-receipt). While the repository rename is pending, use the current source at [lemonxiny55/agent-quality-skill](https://github.com/lemonxiny55/agent-quality-skill); the old URL will redirect after the rename. Run `python scripts/package_skill.py`, inspect the
 result in `dist/`, then extract the ZIP's **contents** into one of these directories:
 
 | Agent | Project installation |
@@ -28,7 +28,7 @@ result in `dist/`, then extract the ZIP's **contents** into one of these directo
 
 The resulting path must be `.../delta-receipt/SKILL.md`. Personal installation
 paths and actual verification status are in [compatibility](references/compatibility.md).
-**Historical v0.1.0 evidence:** Codex CLI 0.163.0-alpha.10.2 on Windows and Claude Code CLI 2.1.226 on Windows invoked the predecessor under its former name. The DeltaReceipt v0.2.0 name checks and native host results are listed separately in the [compatibility matrix](references/compatibility.md). In the Claude task, lint, typecheck and 4/4 TAP tests passed, but the overall Quality Receipt was `incomplete` because the configured test entry file changed after baseline; this task does not claim `no_new_observed`. The transcript model field is `glm-5.2`; the UI was reported as “Fable 5”, and the user clarified the provider/model is Chinese and not Anthropic. Cursor and Copilot were not run. See the [validation record](references/validation.md) and [compatibility matrix](references/compatibility.md).
+**Historical v0.1.0 evidence:** Codex CLI 0.163.0-alpha.10.2 on Windows and Claude Code CLI 2.1.226 on Windows invoked the predecessor under its former name. The DeltaReceipt v0.2.0 name checks and native host results are listed separately in the [compatibility matrix](references/compatibility.md). In the Claude task, lint, typecheck and 4/4 TAP tests passed, but the overall Quality Receipt was `incomplete` because the configured test entry file changed after baseline; that historical task does not claim `no_new_observed`. The transcript model field is `glm-5.2`; the UI was reported as “Fable 5”, and the user clarified the provider/model is Chinese and not Anthropic. Cursor and Copilot were not run. See the [validation record](references/validation.md) and [compatibility matrix](references/compatibility.md).
 
 ## Use
 
@@ -140,6 +140,6 @@ the exact [evidence contract](references/evidence-contract.md).
 [Compatibility](references/compatibility.md) · [Verification](references/validation.md) ·
 [Agensi copy and discovery plan](references/agensi-listing.md) · [Migration guide](references/migration.md)
 
-Status: **v0.2.0 rebrand draft**. The v0.1.0 validation record documents the predecessor; the v0.2.0 Codex run ended `incomplete` after an environment change, and Claude Code could not connect to its API. Neither result establishes `no_new_observed`; Cursor/Copilot and Agensi acceptance remain unverified. No marketplace submission, price setting or public promotional message is performed by the project scripts.
+Status: **v0.2.0 rebrand Draft PR**. The current Codex CLI 0.163.0-alpha.11 E2E explicitly invoked `$delta-receipt`, kept one environment across baseline and verification, passed 2/2 tests, and produced an audited `no_new_observed` receipt with two historical findings retained. Claude Code CLI 2.1.226 remains blocked before task execution by API `ConnectionRefused` after a bounded retry. Automatic selection, Cursor/Copilot and Agensi acceptance are unverified. No marketplace submission, price setting or public promotional message is performed by the project scripts.
 
 MIT © 2026 lemonxiny55. [License](LICENSE) · [Origin attribution](NOTICE).
