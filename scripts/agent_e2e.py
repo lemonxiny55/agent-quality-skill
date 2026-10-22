@@ -17,7 +17,7 @@ ROOT = Path(__file__).resolve().parent.parent
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--agent", choices=("claude", "codex"), default="claude")
-    parser.add_argument("--execute-agent", action="store_true", help="use the configured Claude login for one real evaluation")
+    parser.add_argument("--execute-agent", action="store_true", help="use the configured agent CLI login for one real evaluation")
     parser.add_argument("--evidence", type=Path, required=True)
     parser.add_argument("--dependencies-from", type=Path, required=True, help="reuse this demo repo's already installed node_modules")
     args = parser.parse_args()
@@ -28,7 +28,7 @@ def main():
     evidence = args.evidence.resolve()
     shutil.copytree(ROOT / "examples" / "node", work, ignore=shutil.ignore_patterns("node_modules", ".agent-quality", ".git"))
     shutil.copytree(args.dependencies_from / "node_modules", work / "node_modules")
-    skill = work / (".claude" if args.agent == "claude" else ".agents") / "skills" / "agent-quality-skill"
+    skill = work / (".claude" if args.agent == "claude" else ".agents") / "skills" / "delta-receipt"
     skill.mkdir(parents=True)
     shutil.copy2(ROOT / "SKILL.md", skill / "SKILL.md")
     for folder in ("scripts", "references"):
@@ -60,15 +60,15 @@ def main():
             raise RuntimeError("cannot resolve native Claude executable or npm cli.js")
     else:
         launcher = [claude]
-    prompt = (("/agent-quality-skill " if args.agent == "claude" else "Use $agent-quality-skill. ") + "Rename add(a, b) parameters in src/calculator.mjs to left and right, "
+    prompt = (("/delta-receipt " if args.agent == "claude" else "Use $delta-receipt. ") + "Before editing, read the installed entrypoint at " + (".claude" if args.agent == "claude" else ".agents") + "/skills/delta-receipt/SKILL.md and confirm its heading. Rename add(a, b) parameters in src/calculator.mjs to left and right, "
               "keeping the same addition behavior. Use this installed skill and the existing .agent-quality.json "
               "to verify the task. Save your task baseline and final Quality Receipt in .agent-quality/. "
               "Do not alter the legacy fixtures or any unrelated configuration. "
               "Run your Python commands using the absolute interpreter path " + sys.executable.replace("\\", "/") + ". "
               "You are authorized to execute the reviewed local check plan in this disposable repository. "
-              "Preserve the same execution environment and permission context across baseline and verification; "
-              "you may orchestrate CLI capture, the requested edit, and CLI verification sequentially inside "
-              "one terminal Python process to keep the environment identical. Never recapture after editing. "
+              "Preserve the same execution environment and permission context across baseline and verification. "
+              "Run baseline, the requested source edit, verify and check-receipt sequentially inside one Python process, "
+              "passing the same os.environ.copy() mapping to every CLI subprocess. Do not run baseline and verify in separate shell commands. Never recapture after editing. "
               "Report the actual evidence and limitations.")
     argv = [*launcher, "-p", prompt, "--output-format", "stream-json", "--verbose", "--no-session-persistence",
             "--setting-sources", "project", "--strict-mcp-config", "--mcp-config", '{"mcpServers":{}}',

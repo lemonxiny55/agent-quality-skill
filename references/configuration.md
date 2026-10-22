@@ -1,7 +1,7 @@
 # CLI configuration
 
 The CLI never auto-installs tools or guesses a safe command from a package script.
-Prepare `.agent-quality.json` at the target Git root before capturing the baseline.
+Prepare `.agent-quality.json` at the target Git root before capturing the baseline. This name and its `version: 1` format remain stable from Agent Quality Skill v0.1.0; DeltaReceipt does not rename existing project configuration or receipt files.
 Reuse its installed tools. Review commands and their transitive behavior; `shell=False`
 prevents implicit shell parsing, not execution of malicious repository code.
 

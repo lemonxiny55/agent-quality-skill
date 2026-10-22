@@ -1,1 +1,1 @@
-"""Agent Quality Skill CLI helpers."""
+"""DeltaReceipt CLI helpers."""

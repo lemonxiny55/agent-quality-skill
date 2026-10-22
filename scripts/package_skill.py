@@ -7,6 +7,7 @@ from pathlib import Path
 import tempfile
 import zipfile
 
+from delta_receipt import VERSION
 from validate_skill import validate
 
 ROOT = Path(__file__).resolve().parent.parent
@@ -37,13 +38,13 @@ def build(output):
         assert archive.testzip() is None
         assert sum(i.file_size for i in archive.infolist()) < 50 * 1000 * 1000
         with tempfile.TemporaryDirectory(prefix="aq-zip-") as temporary:
-            destination = Path(temporary) / "agent-quality-skill"
+            destination = Path(temporary) / "delta-receipt"
             archive.extractall(destination)
-            validate(destination)
+            validate(destination, require_directory_name=True)
             for path in destination.rglob("*.py"):
                 compile(path.read_text(encoding="utf-8"), str(path), "exec")
     assert output.stat().st_size < 50 * 1000 * 1000
-    result = {"archive": str(output), "bytes": output.stat().st_size, "files": len(names),
+    result = {"archive": str(output), "skillName": "delta-receipt", "version": VERSION, "bytes": output.stat().st_size, "files": len(names),
               "sha256": hashlib.sha256(output.read_bytes()).hexdigest(), "rootSkill": True, "formatValidatedAfterExtraction": True}
     output.with_suffix(".zip.json").write_text(json.dumps(result, indent=2) + "\n", encoding="utf-8")
     print(json.dumps(result, indent=2))
@@ -51,5 +52,5 @@ def build(output):
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(description=__doc__)
-    parser.add_argument("--out", type=Path, default=ROOT / "dist" / "agent-quality-skill-0.1.0-candidate.zip")
+    parser.add_argument("--out", type=Path, default=ROOT / "dist" / "delta-receipt-0.2.0.zip")
     build(parser.parse_args().out.resolve())

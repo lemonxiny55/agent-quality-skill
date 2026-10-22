@@ -5,7 +5,7 @@ from pathlib import Path
 import re
 
 
-def validate(root):
+def validate(root, require_directory_name=False):
     root = Path(root).resolve()
     text = (root / "SKILL.md").read_text(encoding="utf-8")
     match = re.match(r"\A---\n(.*?)\n---\n(.+)\Z", text, re.S)
@@ -21,7 +21,7 @@ def validate(root):
             raise ValueError("plain scalar subset only; use a YAML validator for other forms")
         metadata[key] = value
     name, description = metadata.get("name", ""), metadata.get("description", "")
-    if not re.fullmatch(r"[a-z0-9]+(?:-[a-z0-9]+)*", name) or len(name) > 64 or name != root.name:
+    if not re.fullmatch(r"[a-z0-9]+(?:-[a-z0-9]+)*", name) or len(name) > 64 or name != "delta-receipt" or (require_directory_name and name != root.name):
         raise ValueError("invalid name or directory/name mismatch")
     if not 1 <= len(description) <= 1024:
         raise ValueError("invalid description")
@@ -33,7 +33,7 @@ def validate(root):
         target = (root / relative).resolve()
         if not target.is_relative_to(root.resolve()) or not target.is_file():
             raise ValueError("broken or escaping local reference: " + relative)
-    for required in ("LICENSE", "NOTICE", "scripts/quality.py", "references/configuration.md", "references/evidence-contract.md"):
+    for required in ("LICENSE", "NOTICE", "scripts/delta_receipt.py", "scripts/quality.py", "references/configuration.md", "references/evidence-contract.md"):
         if not (root / required).is_file():
             raise ValueError("missing required file: " + required)
     return {"name": name, "descriptionLength": len(description), "lines": len(text.splitlines()), "valid": True}
