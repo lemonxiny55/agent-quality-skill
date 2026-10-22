@@ -1,0 +1,7 @@
+# Claude Code native Skill E2E evidence
+
+This evidence covers one isolated fixture task on Claude Code CLI 2.1.226 for Windows. The minimized event timeline proves the `/agent-quality-skill` request and successful native `Skill(agent-quality-skill)` tool call, followed by plan, an executed before-edit baseline, two scoped edits, verify and check-receipt.
+
+The real check commands passed individually (ESLint 0 findings, TypeScript exit 0, Node TAP 4/4). The overall Quality Receipt is `incomplete`, because the configured TAP entry file changed after baseline; this run does not claim `no_new_observed`. The task-time check-receipt returned fresh with effective verdict incomplete. A later cross-shell check was stale under a different aggregate environment fingerprint.
+
+`summary.json` records the model field from the raw transcript as `glm-5.2`; the user reported that the UI displayed “Fable 5” and clarified the provider/model is Chinese and not Anthropic. These source labels are retained without reconciliation. The original 174,470-byte JSONL transcript is withheld because it contains broader session context; its SHA-256 is published in the summary. `events.json` omits message bodies, paths and session IDs. Full baseline and receipt JSON are not published: a public-safety review flagged machine-specific execution metadata despite attempted path redaction. The summary preserves the verified verdicts and reasons without that metadata.
