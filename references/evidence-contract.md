@@ -3,7 +3,7 @@
 `schema: agent-quality/v1`, `artifact: receipt`, `version`, UTC `createdAt`, Git
 root, environment digest, check-plan digest, baseline link, changes, scope,
 authorship, execution, comparisons, verdict, reasons and claim form the receipt.
-`integritySha256` hashes canonical JSON excluding that field. Full executed argv,
+`integritySha256` hashes canonical JSON excluding that field. DeltaReceipt keeps this schema and reads the original v0.1.0 artifacts unchanged. Full executed argv,
 resolved executable and file hashes, cwd, start/end/duration, exit code,
 status, stdout and stderr are stored for every configured command.
 

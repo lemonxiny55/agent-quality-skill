@@ -5,7 +5,7 @@ import json
 from pathlib import Path
 import sys
 
-import quality as q
+import delta_receipt as q
 
 ROOT = Path(__file__).resolve().parent.parent
 
@@ -15,13 +15,13 @@ def audit(directory):
     baseline = before["execution"]
     if before["environment"]["platform"] != sys.platform:
         raise ValueError("replay archive on its captured OS; foreign paths are archival evidence")
-    assert before["implementationSha256"] == q.implementation_identity()
+    assert q.implementation_identity_is_compatible(before["implementationSha256"])
     assert baseline["complete"]
     results = {}
     for name, expected in (("regression.json", "regression"), ("clean.json", "no_new_observed"), ("missing-baseline.json", "incomplete")):
         receipt = q.read_artifact(directory / name)
         assert receipt["verdict"] == expected
-        assert receipt["implementationSha256"] == q.implementation_identity()
+        assert q.implementation_identity_is_compatible(receipt["implementationSha256"])
         for check in receipt["execution"]["checks"]:
             assert check["status"] == "complete"
             replayed = q.parse_output(Path(receipt["repo"]).resolve(), check["adapter"], check["stdout"], check["stderr"], check["exitCode"])

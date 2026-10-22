@@ -1,17 +1,35 @@
 # Agent and OS compatibility
 
-A supported SKILL.md discovery folder is not a successful Agent E2E result.
+The folder name and SKILL.md frontmatter name must both be `delta-receipt`. The ZIP
+contains files at its root; extract its contents so the Skill file is directly at
+`<host-skill-dir>/delta-receipt/SKILL.md`.
 
-| Host | Discovery path documented | Real E2E status |
-| --- | --- | --- |
-| Codex CLI 0.163.0-alpha.10.2, Windows | `.agents/skills/agent-quality-skill/` | **Verified for one isolated task**: explicit invocation, baseline before edit, requested rename only, 2/2 configured tests, receipt freshness passed. See [audit summary](https://github.com/lemonxiny55/agent-quality-skill/blob/main/evidence/release/agent-e2e-codex.json). Automatic selection and hooks were not tested. |
-| Claude Code CLI 2.1.226, Windows 11 | `.claude/skills/agent-quality-skill/` | **Native Skill invocation verified for one isolated task**: task prompt event 7 began with `/agent-quality-skill`; the JSONL trace records a successful `Skill(agent-quality-skill)` call, then plan, before-edit baseline, source/test edits, verify and receipt check. ESLint, TypeScript and TAP commands each passed; the overall receipt was honestly `incomplete` because the configured TAP entry file changed after baseline, so this run does not establish `no_new_observed`. The transcript model field is `glm-5.2`; the UI was reported as “Fable 5” and the user clarified the provider/model is Chinese and not Anthropic. Labels are retained with provenance and are not reconciled. See [sanitized event evidence](../evidence/release/agent-e2e-claude-native/events.json) and [summary](../evidence/release/agent-e2e-claude-native/summary.json). Prior manual-SKILL.md workflow evidence remains separately available at [the earlier audit](../evidence/release/agent-e2e-claude/summary.json). |
-| Cursor Agent | `.cursor/skills/agent-quality-skill/` | Documentation-only; no real Cursor session tested. |
-| GitHub Copilot agent mode / CLI | `.github/skills/agent-quality-skill/` | Documentation-only; no real Copilot session tested. Read-only surfaces cannot execute this workflow. |
-| Other Agent Skills hosts | Host-specific folder named `agent-quality-skill` | Not verified; no universal compatibility claim. |
+| Host | Project install | Personal install | DeltaReceipt v0.2.0 result |
+| --- | --- | --- | --- |
+| [Codex CLI](https://developers.openai.com/codex/skills) | `.agents/skills/delta-receipt/` | `~/.agents/skills/delta-receipt/` | Explicit `$delta-receipt` invocation passed with Codex CLI 0.163.0-alpha.11 in an isolated Windows project. Baseline and verification shared the same environment fingerprint; only the requested calculator parameter rename was made; 2/2 tests passed; the audited receipt was `no_new_observed` with two historical findings retained. Automatic selection was not tested. |
+| [Claude Code](https://code.claude.com/docs/en/skills) | `.claude/skills/delta-receipt/` | `~/.claude/skills/delta-receipt/` | One bounded retry with Claude Code CLI 2.1.226 ended after ten internal API retries with `ConnectionRefused` before task execution, producing no artifacts. Package extraction and the four CLI/import entry points are tested; native Claude invocation remains externally blocked and unverified. |
+| Cursor Agent | `.cursor/skills/delta-receipt/` | — | Documentation path only; no Cursor session tested. |
+| GitHub Copilot agent mode / CLI | `.github/skills/delta-receipt/` | — | Documentation path only; no Copilot session tested. Read-only surfaces cannot execute this workflow. |
+| Other Agent Skills hosts | Host-specific folder named `delta-receipt` | Host-specific | Not verified; no universal compatibility claim. |
 
-The ZIP has files at its root, not an enclosing directory. Extract its contents into a directory named `agent-quality-skill`, so `SKILL.md`, `scripts/` and `references/` are immediate children. Use one install location per host to avoid duplicate or stale skill copies. Explicit invocation is preferred for the first task; automatic relevance selection is host-dependent and untested.
+Codex user skills are installed under `$HOME/.agents/skills`; Claude Code supports
+project `.claude/skills` and personal `~/.claude/skills` locations. See the linked
+official documentation for host-specific discovery rules.
 
-The CLI itself was exercised on Windows 11 with Python 3.13.9 and Ubuntu 24.04 WSL with Python 3.12.3, Git, Node 24.19.0, ESLint 9.39.5 and TypeScript 5.9.3. A reported Claude Code workflow used the same Windows tool versions. WSL is real Linux userspace on a Windows-mounted filesystem, not native Linux CI or a distro sweep. Python 3.10+ is the declared requirement; Python 3.10 was not run in this session.
+The historical Codex native invocation record is available at [the v0.1.0 audit
+summary](https://github.com/lemonxiny55/delta-receipt/blob/main/evidence/release/agent-e2e-codex.json).
+The historical Claude task used `/agent-quality-skill` and recorded an `incomplete`
+receipt because a configured test entry file changed after baseline; see its
+[original minimized event evidence](../evidence/release/agent-e2e-claude-native/events.json)
+and [summary](../evidence/release/agent-e2e-claude-native/summary.json). Those
+artifacts were not relabeled or edited during the rebrand.
 
-No host-specific hooks, completion blocking or automatic source repairs are shipped.
+For project installs, keep one active copy per host to avoid duplicate or stale
+discovery. Explicit invocation is preferred for the first task; automatic relevance
+selection and hooks are host-dependent and untested.
+
+The CLI supports Python 3.10+ and requires Git. Its cross-platform CI matrix runs
+Windows and Ubuntu with Python 3.10 and 3.13. The saved v0.1.0 manual validation
+record also covers Windows 11 and Ubuntu 24.04 WSL; WSL is not native Linux CI.
+No host lifecycle hooks, completion blocking, or automatic source repairs are
+shipped.

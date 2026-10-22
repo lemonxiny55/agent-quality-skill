@@ -1,10 +1,10 @@
-# Agent Quality Skill
+# DeltaReceipt
 
 [English](README.md) | 简体中文
 
 **Fix what the agent broke. Ignore what was already broken. Prove the change is clean.**
 
-免费、MIT 开源的独立 Agent Skill，附带本地证据 CLI。编辑前记录真实工作区，
+DeltaReceipt 是 Agent Quality Skill v0.1.0 的后继版本：免费、MIT 开源的独立 Agent Skill，附带本地证据 CLI。更名保留既有收据数据，详见[迁移说明](references/migration.md)。编辑前记录真实工作区，
 编辑后运行仓库已有 lint、类型检查和测试；只有证据允许时，才区分历史问题与新增结果。
 CLI 不依赖 DSH，不包含遥测、账号系统或网络服务。
 
@@ -13,20 +13,20 @@ CLI 不依赖 DSH，不包含遥测、账号系统或网络服务。
 
 ## 安装和使用
 
-需要 Python 3.10+、Git、有至少一次提交的仓库，以及仓库已安装的检查工具。
+需要 Python 3.10+、Git、有至少一次提交的仓库，以及仓库已安装的检查工具。规范仓库地址为 [lemonxiny55/delta-receipt](https://github.com/lemonxiny55/delta-receipt)。远端改名完成前，请从当前仓库 [lemonxiny55/agent-quality-skill](https://github.com/lemonxiny55/agent-quality-skill) 克隆；旧地址会在改名后重定向。再运行 `python scripts/package_skill.py` 打包安装。
 先检查 ZIP 内容，再把**压缩包内的文件**解压至以下目录之一：
 
 | Agent | 项目内安装位置 |
 | --- | --- |
-| Codex CLI | `.agents/skills/agent-quality-skill/` |
-| Claude Code | `.claude/skills/agent-quality-skill/` |
-| Cursor Agent | `.cursor/skills/agent-quality-skill/` |
-| GitHub Copilot | `.github/skills/agent-quality-skill/` |
+| Codex CLI | `.agents/skills/delta-receipt/` |
+| Claude Code | `.claude/skills/delta-receipt/` |
+| Cursor Agent | `.cursor/skills/delta-receipt/` |
+| GitHub Copilot | `.github/skills/delta-receipt/` |
 
 确保目录内直接包含 `SKILL.md`、`scripts` 和 `references`。
-Windows 上的 Codex CLI 0.163.0-alpha.10.2 与 Claude Code CLI 2.1.226 均有一次隔离任务的原生 Skill 调用证据。Claude 任务中的 lint、类型检查和 4/4 TAP 测试分别通过，但总收据为 `incomplete`：配置中的测试入口文件在 baseline 后发生变化，因此本次不声称 `no_new_observed`。此前 Claude 手动读取 SKILL.md 的工作流及收据仍是独立有效证据。原始事件记录中的模型字段为 `glm-5.2`，用户界面报告为“Fable 5”；用户说明实际使用的是中国模型／提供方，不是 Anthropic Claude。Cursor／Copilot 尚未运行。详情见[验证记录](references/validation.md)和[兼容矩阵](references/compatibility.md)。
+历史 v0.1.0 证据记录了 Windows 上 Codex CLI 0.163.0-alpha.10.2 与 Claude Code CLI 2.1.226 使用旧名称执行的隔离任务。DeltaReceipt v0.2.0 的新名称检查及原生宿主结果见[兼容矩阵](references/compatibility.md)。Claude 任务中的 lint、类型检查和 4/4 TAP 测试分别通过，但总收据为 `incomplete`：配置中的测试入口文件在 baseline 后发生变化，因此该历史任务不声称 `no_new_observed`。此前 Claude 手动读取 SKILL.md 的工作流及收据仍是独立有效证据。原始事件记录中的模型字段为 `glm-5.2`，用户界面报告为“Fable 5”；用户说明实际使用的是中国模型／提供方，不是 Anthropic Claude。Cursor／Copilot 尚未运行。详情见[验证记录](references/validation.md)和[兼容矩阵](references/compatibility.md)。
 
-在开始编辑前于 Codex 调用 `$agent-quality-skill`、于 Claude Code 调用 `/agent-quality-skill`，
+在开始编辑前于 Codex 调用 `$delta-receipt`、于 Claude Code 调用 `/delta-receipt`，
 或让 Agent 阅读安装目录里的 SKILL.md。
 让它先检查仓库已有命令，并在目标仓库根目录配置 `.agent-quality.json`，
 参照[配置说明](references/configuration.md)或[完整示例](examples/node/.agent-quality.json)。
@@ -34,11 +34,11 @@ Windows 上的 Codex CLI 0.163.0-alpha.10.2 与 Claude Code CLI 2.1.226 均有�
 以下路径须替换成实际绝对路径；Windows 可使用 `python` 或 `py -3`，含空格路径需要引号。
 
 ```sh
-python /skill/scripts/quality.py plan --repo /repo
-python /skill/scripts/quality.py baseline --repo /repo --before-edit --execute --out /repo/.agent-quality/task-001.before.json
+python /skill/scripts/delta_receipt.py plan --repo /repo
+python /skill/scripts/delta_receipt.py baseline --repo /repo --before-edit --execute --out /repo/.agent-quality/task-001.before.json
 # 采集完成后，再进行本轮代码编辑。
-python /skill/scripts/quality.py verify --repo /repo --baseline /repo/.agent-quality/task-001.before.json --execute --out /repo/.agent-quality/task-001.receipt.json
-python /skill/scripts/quality.py check-receipt --repo /repo --receipt /repo/.agent-quality/task-001.receipt.json
+python /skill/scripts/delta_receipt.py verify --repo /repo --baseline /repo/.agent-quality/task-001.before.json --execute --out /repo/.agent-quality/task-001.receipt.json
+python /skill/scripts/delta_receipt.py check-receipt --repo /repo --receipt /repo/.agent-quality/task-001.receipt.json
 ```
 
 执行前审阅 plan。`--execute` 表示明确选择执行，不会绕过宿主授权，也不是安全沙箱。
@@ -78,6 +78,8 @@ python scripts/record_tests.py --out evidence/my-tests.json
 python scripts/package_skill.py
 ```
 
+兼容入口 `scripts/quality.py` 会转发至新 CLI，旧脚本仍可继续使用。已有 `.agent-quality.json`、`.agent-quality/` 文件和 `agent-quality/v1` 收据继续保留；不要重命名或重写。
+
 `--install` 明确允许在新建的隔离 Demo 仓库执行 `npm ci --ignore-scripts`。
 示例用固定版本的 ESLint、TypeScript 和 Node 测试运行器，保留两个历史问题，
 真实引入 lint／类型／测试回归，再只修复新增修改，并验证缺失基线和凭证失效。
@@ -106,9 +108,9 @@ Git 忽略的未跟踪输入、已安装依赖的传递文件及外部服务无�
 请保持工具／依赖不变、使用单写入者，并阅读[证据边界](references/evidence-contract.md)。
 
 [技术调研与来源](references/feasibility.md) · [兼容矩阵](references/compatibility.md) ·
-[验证记录](references/validation.md) · [Agensi 文案与引流计划](references/agensi-listing.md)
+[验证记录](references/validation.md) · [Agensi 文案与引流计划](references/agensi-listing.md) · [迁移说明](references/migration.md)
 
-当前达到 **PUBLIC RELEASE / AGENSI SUBMISSION READY**，范围限于已验证的 Codex 流程和一次 Windows Claude Code 原生 Skill 调用。Claude 任务总收据为 `incomplete`，不声称 `no_new_observed`。Cursor／Copilot 及 Agensi 服务端验收仍未验证。
+当前为 **v0.2.0 更名 Draft PR**。Codex CLI 0.163.0-alpha.11 已通过 DeltaReceipt 原生 E2E：baseline 与验证环境指纹一致，2/2 测试通过，收据为 `no_new_observed`，并保留两项历史发现。Claude Code CLI 2.1.226 在有限重试后仍于任务启动前遇到 API `ConnectionRefused`。自动选择、Cursor／Copilot 及 Agensi 服务端验收尚未验证。
 没有正式上架、设置付费价格或对外发布推广。
 
 MIT © 2026 lemonxiny55。[许可](LICENSE) · [来源归属](NOTICE)。

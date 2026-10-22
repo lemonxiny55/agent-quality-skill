@@ -13,7 +13,7 @@ jobs:
     steps:
       - uses: actions/checkout@v4
         with:
-          path: agent-quality-skill
+          path: delta-receipt
       - uses: actions/setup-python@v5
         with:
           python-version: ${{ matrix.python }}
@@ -21,7 +21,7 @@ jobs:
         with:
           node-version: '24'
       - name: Validate, test, demonstrate, package
-        working-directory: agent-quality-skill
+        working-directory: delta-receipt
         run: |
           python scripts/validate_skill.py .
           python scripts/record_tests.py --out evidence/ci-tests.json
@@ -32,6 +32,6 @@ jobs:
         with:
           name: evidence-${{ matrix.os }}-py${{ matrix.python }}
           path: |
-            agent-quality-skill/evidence/ci-tests.json
-            agent-quality-skill/evidence/ci-demo
-            agent-quality-skill/dist/agent-quality-skill-0.1.0-candidate.zip
+            delta-receipt/evidence/ci-tests.json
+            delta-receipt/evidence/ci-demo
+            delta-receipt/dist/delta-receipt-0.2.0.zip

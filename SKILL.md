@@ -1,12 +1,16 @@
 ---
-name: agent-quality-skill
-description: Use when preparing code changes or verifying an agent task with repository lint, typecheck and tests, especially when pre-existing failures need separation from newly observed findings. Captures a pre-edit baseline and produces a conservative, inspectable Quality Receipt through a local CLI.
+name: delta-receipt
+description: Use DeltaReceipt when preparing code changes or verifying an agent task with repository lint, typecheck and tests, especially when pre-existing failures need separation from newly observed findings. Captures a pre-edit baseline and produces a conservative, inspectable Quality Receipt through a local CLI.
 license: MIT
 ---
 
-# Agent Quality Skill
+# DeltaReceipt
 
 **Fix what the agent broke. Ignore what was already broken. Prove the change is clean.**
+
+DeltaReceipt is the successor to Agent Quality Skill v0.1.0. This release changes
+the Skill and CLI names while preserving the existing receipt format and runtime
+paths; see [the migration guide](references/migration.md).
 
 This is an explicitly orchestrated workflow with executable evidence collection.
 It does not install lifecycle hooks, intercept edits, block completion, or prove
@@ -43,11 +47,11 @@ Example commands (replace `/skill` and `/repo` with real absolute paths; quote
 paths with spaces; on Windows use the available `python` or `py -3` command):
 
 ```sh
-python /skill/scripts/quality.py plan --repo /repo
-python /skill/scripts/quality.py baseline --repo /repo --before-edit --execute --out /repo/.agent-quality/task-001.before.json
+python /skill/scripts/delta_receipt.py plan --repo /repo
+python /skill/scripts/delta_receipt.py baseline --repo /repo --before-edit --execute --out /repo/.agent-quality/task-001.before.json
 # Perform the user's task only after baseline capture.
-python /skill/scripts/quality.py verify --repo /repo --baseline /repo/.agent-quality/task-001.before.json --execute --out /repo/.agent-quality/task-001.receipt.json
-python /skill/scripts/quality.py check-receipt --repo /repo --receipt /repo/.agent-quality/task-001.receipt.json
+python /skill/scripts/delta_receipt.py verify --repo /repo --baseline /repo/.agent-quality/task-001.before.json --execute --out /repo/.agent-quality/task-001.receipt.json
+python /skill/scripts/delta_receipt.py check-receipt --repo /repo --receipt /repo/.agent-quality/task-001.receipt.json
 ```
 
 ## Evidence contract

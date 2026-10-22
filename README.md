@@ -1,10 +1,10 @@
-# Agent Quality Skill
+# DeltaReceipt
 
 English | [简体中文](README.zh.md)
 
 **Fix what the agent broke. Ignore what was already broken. Prove the change is clean.**
 
-A free, MIT-licensed Agent Skill with a local evidence CLI. Capture the real working
+DeltaReceipt is the successor to Agent Quality Skill v0.1.0: a free, MIT-licensed Agent Skill with a local evidence CLI. The rebrand preserves existing receipt data; see the [migration guide](references/migration.md). Capture the real working
 state before a coding task, run the repository's lint/typecheck/tests after it, and
 keep historical failures separate from newly observed findings when the evidence
 allows it. No DSH runtime, telemetry, account or network service is required by the CLI.
@@ -16,23 +16,23 @@ plugin for integrated edit feedback, lifecycle steering and safe repair.
 ## Install
 
 Requires Python 3.10+, Git, a repository with a commit and its checking tools already
-installed. Clone this repository, run `python scripts/package_skill.py`, inspect the
+installed. The canonical source is [lemonxiny55/delta-receipt](https://github.com/lemonxiny55/delta-receipt). While the repository rename is pending, use the current source at [lemonxiny55/agent-quality-skill](https://github.com/lemonxiny55/agent-quality-skill); the old URL will redirect after the rename. Run `python scripts/package_skill.py`, inspect the
 result in `dist/`, then extract the ZIP's **contents** into one of these directories:
 
 | Agent | Project installation |
 | --- | --- |
-| Codex CLI | `.agents/skills/agent-quality-skill/` |
-| Claude Code | `.claude/skills/agent-quality-skill/` |
-| Cursor Agent | `.cursor/skills/agent-quality-skill/` |
-| GitHub Copilot | `.github/skills/agent-quality-skill/` |
+| Codex CLI | `.agents/skills/delta-receipt/` |
+| Claude Code | `.claude/skills/delta-receipt/` |
+| Cursor Agent | `.cursor/skills/delta-receipt/` |
+| GitHub Copilot | `.github/skills/delta-receipt/` |
 
-The resulting path must be `.../agent-quality-skill/SKILL.md`. Personal installation
+The resulting path must be `.../delta-receipt/SKILL.md`. Personal installation
 paths and actual verification status are in [compatibility](references/compatibility.md).
-**Verified for one isolated task:** Codex CLI 0.163.0-alpha.10.2 on Windows and Claude Code CLI 2.1.226 on Windows both invoked the Skill natively. In the Claude task, lint, typecheck and 4/4 TAP tests passed, but the overall Quality Receipt was `incomplete` because the configured test entry file changed after baseline; this task does not claim `no_new_observed`. The transcript model field is `glm-5.2`; the UI was reported as “Fable 5”, and the user clarified the provider/model is Chinese and not Anthropic. Cursor and Copilot were not run. See the [validation record](references/validation.md) and [compatibility matrix](references/compatibility.md).
+**Historical v0.1.0 evidence:** Codex CLI 0.163.0-alpha.10.2 on Windows and Claude Code CLI 2.1.226 on Windows invoked the predecessor under its former name. The DeltaReceipt v0.2.0 name checks and native host results are listed separately in the [compatibility matrix](references/compatibility.md). In the Claude task, lint, typecheck and 4/4 TAP tests passed, but the overall Quality Receipt was `incomplete` because the configured test entry file changed after baseline; that historical task does not claim `no_new_observed`. The transcript model field is `glm-5.2`; the UI was reported as “Fable 5”, and the user clarified the provider/model is Chinese and not Anthropic. Cursor and Copilot were not run. See the [validation record](references/validation.md) and [compatibility matrix](references/compatibility.md).
 
 ## Use
 
-Invoke `$agent-quality-skill` in Codex or `/agent-quality-skill` in Claude Code
+Invoke `$delta-receipt` in Codex or `/delta-receipt` in Claude Code
 **before making task edits**, or ask your Agent to read the installed SKILL.md.
 Let it review your existing checks and prepare
 `.agent-quality.json` in the target repository. See the
@@ -43,11 +43,11 @@ Use absolute paths, quoted as needed. Replace `/skill` and `/repo` below. On Win
 use the installed `python` or `py -3` command and actual Windows paths.
 
 ```sh
-python /skill/scripts/quality.py plan --repo /repo
-python /skill/scripts/quality.py baseline --repo /repo --before-edit --execute --out /repo/.agent-quality/task-001.before.json
+python /skill/scripts/delta_receipt.py plan --repo /repo
+python /skill/scripts/delta_receipt.py baseline --repo /repo --before-edit --execute --out /repo/.agent-quality/task-001.before.json
 # Now perform the requested code changes.
-python /skill/scripts/quality.py verify --repo /repo --baseline /repo/.agent-quality/task-001.before.json --execute --out /repo/.agent-quality/task-001.receipt.json
-python /skill/scripts/quality.py check-receipt --repo /repo --receipt /repo/.agent-quality/task-001.receipt.json
+python /skill/scripts/delta_receipt.py verify --repo /repo --baseline /repo/.agent-quality/task-001.before.json --execute --out /repo/.agent-quality/task-001.receipt.json
+python /skill/scripts/delta_receipt.py check-receipt --repo /repo --receipt /repo/.agent-quality/task-001.receipt.json
 ```
 
 Review the plan before `--execute`. These commands run repository code with the
@@ -91,6 +91,8 @@ To run the real demo from this source directory:
 python scripts/demo.py --install --evidence evidence/my-demo
 ```
 
+The deprecated `scripts/quality.py` entry point still forwards to the renamed CLI. Existing `.agent-quality.json`, `.agent-quality/` files and `agent-quality/v1` receipts remain in place; do not rename or rewrite them.
+
 This explicitly permits `npm ci --ignore-scripts` in a **new disposable repository**.
 The pinned example starts with one historical lint error and one historical type
 error, adds real lint/type/test regressions, repairs only the new changes and checks
@@ -113,7 +115,7 @@ acceptance has not been tested.
 
 ## Compared with dsh-lint-loop
 
-| | Agent Quality Skill | Original dsh-lint-loop |
+| | DeltaReceipt | Original dsh-lint-loop |
 | --- | --- | --- |
 | Runtime | Python stdlib CLI + host terminal tools | DSH plugin |
 | Trigger | Explicit Agent workflow; relevance discovery depends on host | Integrated DSH edit and lifecycle behavior |
@@ -136,8 +138,8 @@ the exact [evidence contract](references/evidence-contract.md).
 
 [Research and primary sources](references/feasibility.md) ·
 [Compatibility](references/compatibility.md) · [Verification](references/validation.md) ·
-[Agensi copy and discovery plan](references/agensi-listing.md)
+[Agensi copy and discovery plan](references/agensi-listing.md) · [Migration guide](references/migration.md)
 
-Status: **PUBLIC RELEASE / AGENSI SUBMISSION READY** within the verified Codex workflow and one native Claude Code Skill invocation on Windows. The Claude task receipt was `incomplete`, so it does not claim `no_new_observed`. Cursor/Copilot and Agensi acceptance remain unverified. No marketplace submission, price setting or public promotional message is performed by the project scripts.
+Status: **v0.2.0 rebrand Draft PR**. The current Codex CLI 0.163.0-alpha.11 E2E explicitly invoked `$delta-receipt`, kept one environment across baseline and verification, passed 2/2 tests, and produced an audited `no_new_observed` receipt with two historical findings retained. Claude Code CLI 2.1.226 remains blocked before task execution by API `ConnectionRefused` after a bounded retry. Automatic selection, Cursor/Copilot and Agensi acceptance are unverified. No marketplace submission, price setting or public promotional message is performed by the project scripts.
 
 MIT © 2026 lemonxiny55. [License](LICENSE) · [Origin attribution](NOTICE).

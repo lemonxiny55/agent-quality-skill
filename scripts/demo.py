@@ -58,7 +58,7 @@ def main():
     run(["git", "add", "types/current.ts"])
     (work / "user-note.txt").write_text("Pre-existing untracked user work.\n", encoding="utf-8")
     staged = run(["git", "diff", "--cached"]).stdout
-    cli = [sys.executable, str(ROOT / "scripts" / "quality.py")]
+    cli = [sys.executable, str(ROOT / "scripts" / "delta_receipt.py")]
     state = work / ".agent-quality"
     state.mkdir()
     baseline = state / "before.json"
