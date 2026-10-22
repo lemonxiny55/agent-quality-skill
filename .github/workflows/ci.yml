@@ -32,5 +32,6 @@ jobs:
         with:
           name: evidence-${{ matrix.os }}-py${{ matrix.python }}
           path: |
-            agent-quality-skill/evidence
-            agent-quality-skill/dist
+            agent-quality-skill/evidence/ci-tests.json
+            agent-quality-skill/evidence/ci-demo
+            agent-quality-skill/dist/agent-quality-skill-0.1.0-candidate.zip

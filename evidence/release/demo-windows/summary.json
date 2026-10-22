@@ -6,7 +6,7 @@
     "eslint": "v9.39.5",
     "typescript": "Version 5.9.3"
   },
-  "work": "C:\\Projects\\agent-quality-skill\\.work\\demo-fea5988351",
+  "work": "examples/node",
   "regressionVerdict": "regression",
   "finalVerdict": "no_new_observed",
   "historicalFindingsRetained": 2,
@@ -24,12 +24,12 @@
   "staleReceipt": "incomplete",
   "stagedAndUntrackedPreserved": true,
   "artifacts": {
-    "before.json": "47b1b79b8fda5f049489523a7c95189054cb4d1467b4063d014f690df349db0a",
-    "clean.json": "453d5dfbb05acd4c1c892d0f05b8c9a9223ef83e289e1fdaeee0039a80113859",
-    "commands.json": "4add679dce917b3f24ddc347eb2ebb038d19b70433df2119484ffd0e414f6c95",
-    "missing-baseline.json": "f19f683d0a2fa7ecb4a1aee83888b4dd4c1482ce38db3444d076a5c8ad51282c",
-    "regression.json": "7759fc0dd5f3abc8d419c16afc237dbf9af09d60ed6062b8cd863d63df86bc7c",
+    "before.json": "fbc88cdcf007acfee2670aa818dcf26e114b88b09f2d4d0c212c3856d529702b",
+    "clean.json": "cbc7d9704f7ec7436de600116b490ba1e3657bd7a06d5454f19130e0d9713308",
+    "commands.json": "d55d070a8e7797092479f26874f8e46c4c1766aa55486da281019752d5196176",
+    "missing-baseline.json": "73301dc6d97834081431e7e2d3a7e04c0b312dde537e7ccb086470db94dbe660",
+    "regression.json": "3b2a10925083f29ea1a501103bd316ac9dd3d4b107c72edcdffd9bfa910031df",
     "stale-check.json": "2880846b585f2abedfede7e6eee27357c91c90f68ffc73aa58794e56896fd13e"
   },
-  "pathRedactions": "Machine-specific repository and home paths replaced with generic paths; receipts resealed (unsigned)."
+  "pathRedactions": "The public command transcript is minimized. Windows receipt repository, cwd, executable, output, and checksum-key paths were replaced with relative paths; output hashes, artifact integrity hashes, and comparison references were recomputed. Original raw evidence remains local; public receipts are unsigned."
 }
