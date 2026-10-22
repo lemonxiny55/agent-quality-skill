@@ -28,10 +28,7 @@ result in `dist/`, then extract the ZIP's **contents** into one of these directo
 
 The resulting path must be `.../agent-quality-skill/SKILL.md`. Personal installation
 paths and actual verification status are in [compatibility](references/compatibility.md).
-**Verified:** Codex CLI 0.163.0-alpha.10.2 on Windows, explicit Skill invocation.
-Claude Code's attempted run was blocked by API connection failure; Cursor and
-Copilot were not run. Only the recorded Agent/OS combination is an E2E claim; documented discovery paths
-for other hosts are not test results. The ZIP itself is not a published listing.
+**Verified for one isolated task:** Codex CLI 0.163.0-alpha.10.2 on Windows and Claude Code CLI 2.1.226 on Windows both invoked the Skill natively. In the Claude task, lint, typecheck and 4/4 TAP tests passed, but the overall Quality Receipt was `incomplete` because the configured test entry file changed after baseline; this task does not claim `no_new_observed`. The transcript model field is `glm-5.2`; the UI was reported as “Fable 5”, and the user clarified the provider/model is Chinese and not Anthropic. Cursor and Copilot were not run. See the [validation record](references/validation.md) and [compatibility matrix](references/compatibility.md).
 
 ## Use
 
@@ -141,9 +138,6 @@ the exact [evidence contract](references/evidence-contract.md).
 [Compatibility](references/compatibility.md) · [Verification](references/validation.md) ·
 [Agensi copy and discovery plan](references/agensi-listing.md)
 
-Status: **PUBLIC RELEASE / AGENSI SUBMISSION READY**, scoped to the verified Codex workflow and
-documented limitations in the validation record. This does not certify the three
-unverified primary hosts or Agensi acceptance. No marketplace submission, price setting or
-public promotional message is performed by the project scripts.
+Status: **PUBLIC RELEASE / AGENSI SUBMISSION READY** within the verified Codex workflow and one native Claude Code Skill invocation on Windows. The Claude task receipt was `incomplete`, so it does not claim `no_new_observed`. Cursor/Copilot and Agensi acceptance remain unverified. No marketplace submission, price setting or public promotional message is performed by the project scripts.
 
 MIT © 2026 lemonxiny55. [License](LICENSE) · [Origin attribution](NOTICE).

@@ -1,0 +1,45 @@
+{
+  "recordType": "sanitized Claude Code native Skill invocation evidence",
+  "date": "2026-10-20",
+  "scope": "one isolated Windows 11 fixture task",
+  "host": {
+    "name": "Claude Code CLI",
+    "version": "2.1.226",
+    "installPath": ".claude/skills/agent-quality-skill/SKILL.md"
+  },
+  "model": {
+    "transcriptMessageField": "glm-5.2",
+    "userReportedUISelection": "Fable 5",
+    "providerClarification": "user reports a China-based non-Anthropic model/provider",
+    "reconciliation": "unresolved labels from different sources; no claim that the model is Anthropic Claude"
+  },
+  "nativeSkillInvocation": "PASS: task prompt event 7 began with /agent-quality-skill; event 13 called Skill(agent-quality-skill); event 14 returned without tool error",
+  "workflow": "plan → executed before-edit baseline → edit source and test → execute verify → check receipt",
+  "qualityOutcome": {
+    "baseline": "baseline_ready",
+    "eslint": "exit 0, zero findings",
+    "typecheck": "exit 0, zero findings",
+    "nodeTestTap": "exit 0, 4/4 passed",
+    "receipt": "incomplete (verify exit 2)",
+    "reason": "The configured TAP entry file test/calculator.test.mjs changed after baseline; entry/config comparison is not valid under the evidence contract. This run does not establish no_new_observed.",
+    "taskTimeReceiptCheck": "artifact integrity verified; fresh true; effective verdict incomplete, according to the same-session event"
+  },
+  "fixtureChanges": [
+    "src/calculator.mjs: added double(value)",
+    "test/calculator.test.mjs: added positive and negative double tests"
+  ],
+  "privacy": {
+    "rawTranscriptPublished": false,
+    "rawTranscriptSha256": "53ab04e64e63254d5cbc91c6c98009828eab3884fc81d0902aa843d46a79365c",
+    "rawTranscriptBytes": 174470,
+    "rawTranscriptEventCount": 80,
+    "reason": "The full transcript contains broader session context; only a minimized event timeline and summary are included.",
+    "fullBaselineAndReceiptPublished": false,
+    "artifactWithholdingReason": "Full receipt JSON retains machine-specific execution metadata and was withheld after public-safety review; the public summary reports only the relevant verified outcomes."
+  },
+  "limitations": [
+    "One Windows fixture task only.",
+    "A later cross-shell check returned stale under a different aggregate environment fingerprint; it does not reproduce the task-time freshness result.",
+    "No assertion is made about Claude-only model identity, other Claude Code versions, automatic discovery, or other hosts."
+  ]
+}
